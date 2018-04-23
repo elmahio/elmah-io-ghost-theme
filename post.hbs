@@ -1,0 +1,56 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The main content area --}}
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="sidebar-wrapper">
+				<div class="input-group">
+					<div class="input-group-addon"><i class="fa fa-search"></i></div>
+					<input type="text" class="form-control" id="search" placeholder="Search ..." autocomplete="off" />
+				</div>
+				<div id="searchList"></div>
+
+				<hr style="border-color: #ddd;">
+
+				<div class="posts-wrapper hidden-xs">
+					<h3>Posts</h3>
+					<div id="postList"></div>
+				</div>
+				<a href="javascript:;" class="btn btn-default btn-block" id="show-all-posts">Show all posts</a>
+			</div>
+		</div>
+		<div class="col-md-9" role="main">
+			<div class="docs-box docs-post">
+				{{#post}}
+				<h1>{{title}}</h1>
+				<hr>
+
+				<div class="post-author">Written by {{author}}, {{date published_at format="MMMM DD, YYYY"}}</div>
+
+				{{content}}
+				<br><br>
+
+				<div class="addthis_inline_share_toolbox"></div>
+				<p>
+					<small><em>This post was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small>
+				</p>
+
+				<p class="text-center">
+					<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">See how we can help you monitor your website for crashes</a>
+					<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor your website</a>
+				</p>
+
+				{{#if featured}}
+				<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
+				{{/if}}
+
+				{{/post}}
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,45 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The main content area --}}
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-md-3" role="complementary">
+			<div class="sidebar-wrapper">
+				<div class="input-group">
+					<div class="input-group-addon"><i class="fa fa-search"></i></div>
+					<input type="text" class="form-control" id="search" placeholder="Search ..." autocomplete="off" />
+				</div>
+				<div id="searchList"></div>
+
+				<hr style="border-color: #ddd;">
+
+				<div class="posts-wrapper hidden-xs">
+					<h3>Posts</h3>
+					<div id="postList"></div>
+				</div>
+				<a href="javascript:;" class="btn btn-default btn-block" id="show-all-posts">Show all posts</a>
+			</div>
+		</div>
+		<div class="col-md-9" role="main">
+			<div class="docs-box">
+				<h1>elmah.io Blog</h1>
+				<hr>
+				<h2>Latest</h2>
+				<div class="latestPosts">
+					{{#foreach posts}}
+					<div class="post">
+						<a class="post-title" href="{{ url }}">{{title}}</a>
+						<p>{{#author}}{{name}}{{/author}}, {{date published_at format="MMMM DD, YYYY"}} {{excerpt}}</p>
+					</div>
+					{{/foreach}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
