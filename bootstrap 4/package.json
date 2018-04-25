@@ -1,0 +1,17 @@
+{
+    "name": "elmah-BS4-theme",
+    "description": "Elmah.io blogging theme based on Bootstrap 4 framework.",
+    "version": "1.0.0",
+    "engines": {
+        "ghost": ">=1.0.0"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "eduard-dan stanescu",
+        "email": "zflashare@gmail.com",
+        "url": "http://eduardstanescu.tech"
+    },
+    "config": {
+        "posts_per_page": 5
+    }
+}

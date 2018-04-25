@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        {{!-- Document Settings --}}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {{!-- Base Meta --}}
+        <title>{{meta_title}} | elmah.io</title>
+        <meta name="HandheldFriendly" content="True" />
+
+        {{!-- Styles'n'Scripts --}}
+        <link href="{{asset "css/bootstrap.min.css" }}" rel="stylesheet">
+        <link href="{{asset "fonts/font-awesome/css/font-awesome.min.css" }}" rel="stylesheet">
+        <link href="{{asset "css/highlight.css" }}" rel="stylesheet">
+        <link href="{{asset "css/style.css" }}" rel="stylesheet">
+
+        {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+        {{ghost_head}}
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WKDV74');</script>
+        <!-- End Google Tag Manager -->
+
+    </head>
+
+    <body class="{{body_class}}">
+
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKDV74"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="https://elmah.io/">
+                    <img src="{{asset "img/logo.png"}}" alt="elmah.io">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-signin">
+                        <li class="hidden-xs"><span class="navbar-text">Sign in:</span></li>
+                        <li><a href="https://elmah.io/authentication/redirect/Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/Google"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/windowslive"><i class="fa fa-windows"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="section-hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div>
+                            <h2>Reduce bugs with elmah.io</h2>
+                            <h4>When your website feels sick, we've got your back!</h4>
+                        </div>
+                    </div>
+                    <div class="col text-right d-none d-lg-block">
+                        <a class="btn btn-hg btn-primary btn-signup-shadow text-center" href="https://elmah.io/?utm_source=blogheadercta&amp;utm_medium=blog&amp;utm_campaign=blogheadercta">No credit card required - sign up now <span class="fa fa-chevron-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
+
+        {{!-- The footer at the very bottom of the screen --}}
+        <footer>
+            <div class="pre-footer">
+                <div class="container">
+                    <div class="company-logo">
+                        <img class="img-fluid" src="{{asset "img/elmahio.png"}}" alt="elmah.io">
+                    </div>
+                    <a href="https://elmah.io/pricing/" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+                </div>
+            </div>
+            <div class="links">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Product</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/features/">Features</a></li>
+                                <li><a href="https://elmah.io/pricing/">Pricing</a></li>
+                                <li><a href="https://elmah.io/api">API</a></li>
+                                <li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Company</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/about/">About</a></li>
+                                <li><a href="https://elmah.io/contact/">Contact</a></li>
+                                <li><a href="https://blog.elmah.io/">Blog</a></li>
+                                <li><a href="https://docs.elmah.io/">Docs</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Learn</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+                                <li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+                                <li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+                                <li><a href="https://elmah.io/tools/">Free Tools</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Guides</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+                                <li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+                                <li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Social</h5>
+                            <ul class="list-unstyled social">
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fa fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fa fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="text-center">
+                        <p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+                        <p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        {{!-- jQuery + Bootstrap JS + Scripts --}}
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{asset "js/bootstrap.min.js" }}"></script>
+        <script src="{{asset "js/highlight.pack.js" }}"></script>
+        <script src="{{asset "js/fuse.min.js" }}"></script>
+        <script src="{{asset "js/main.js" }}"></script>
+
+        <script>
+            window.intercomSettings = {
+                app_id: "i2hhgdvj"
+            };
+        </script>
+        <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script>
+
+        {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+        {{ghost_foot}}
+
+    </body>
+</html>

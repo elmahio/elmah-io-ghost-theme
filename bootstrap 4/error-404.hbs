@@ -1,0 +1,25 @@
+{{!< default}}
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
+--}}
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+
+        <article class="col main-content" style="max-width: 100%;">
+            <div class="main-content-body">
+
+                <div class="docs-box">
+                    <section class="error-message text-center">
+                        <h1 class="error-code">{{code}}</h1>
+                        <p class="error-description">{{message}}</p>
+                        <a class="error-link" href="{{@blog.url}}">Go to the front page →</a>
+                    </section>
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+</div>

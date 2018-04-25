@@ -1,0 +1,41 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The main content area --}}
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+
+    	{{> "sidebar"}}
+
+        <article class="col main-content">
+            <div class="main-content-body">
+            	<div class="docs-box docs-post">
+					{{#post}}
+
+					<h1>{{title}}</h1>
+					<div class="post-author">Written by {{author}}, {{date published_at format="MMMM DD, YYYY"}}</div>
+
+					{{content}}
+
+					<br><br>
+					<div class="addthis_inline_share_toolbox"></div>
+					<p><small><em>This post was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
+
+					<p class="text-center">
+						<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" class="btn btn-lg btn-primary d-none d-sm-block" style="white-space: normal;">See how we can help you monitor your website for crashes</a>
+						<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" class="btn btn-lg btn-primary d-block d-sm-none">Monitor your website</a>
+					</p>
+
+					{{#if featured}}
+					<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
+					{{/if}}
+
+					{{/post}}
+				</div>
+			</div>
+		</article>
+
+	</div>
+</div>

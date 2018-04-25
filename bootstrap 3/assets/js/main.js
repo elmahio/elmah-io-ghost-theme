@@ -49,8 +49,6 @@ $(document).ready(function(){
 					$("#searchList ul").append("<li><a href='" + value.url +"'>" + value.title + "</a></li>");
 				});
 			});
-
-
     	}
     }
 
