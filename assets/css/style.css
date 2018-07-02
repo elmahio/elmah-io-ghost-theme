@@ -550,6 +550,9 @@ footer .copyright a {
 		background: #17A79A;
 		margin: 15px -15px -15px -15px;
 	}
+	.navbar-nav-btn {
+	    padding: 10px 15px;
+	}
 	.sidebar {
 	    width: 100%;
 	    margin-bottom: 30px;
