@@ -70,10 +70,10 @@ blockquote a, blockquote a:visited {
 }
 .btn-signup-shadow {
 	background: #18A19A;
-    color: #ffffff;
-    border-color: #18b19b;
-    box-shadow: 0px 10px 14px -7px rgba(0,0,0,0.3) !important;
-    background-image: linear-gradient(to bottom, #18b09b 5%, #18A19A 100%);
+    	color: #ffffff;
+    	border-color: #18b19b;
+   	box-shadow: 0px 10px 14px -7px rgba(0,0,0,0.3) !important;
+    	background-image: linear-gradient(to bottom, #18b09b 5%, #18A19A 100%);
 	border-radius: 100px;
 	font-size: 20px;
 	font-weight: 400;
