@@ -117,7 +117,7 @@
                                 <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
                                 <li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
                                 <li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
-                                <li><a href="https://elmah.io/tools/">Free Tools</a></li>
+                                <li><a href="https://elmah.io/tools/configvalidator/">Web.config Validator</a></li>
                             </ul>
                         </div>
                         <div class="col">
@@ -154,6 +154,7 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{asset "js/bootstrap.min.js" }}"></script>
         <script src="{{asset "js/highlight.pack.js" }}"></script>
@@ -166,8 +167,12 @@
         {{#if featured}}
         <!-- move the script here -->
         {{/if}}
-        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-        <script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
+        <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+        <script>
+            var mcForms = ["a5c4988234", "e6194de6d8"],
+                random = mcForms[Math.floor(Math.random() * mcForms.length)];
+            require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":random}); });
+        </script>
         {{/post}}
 
         {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
