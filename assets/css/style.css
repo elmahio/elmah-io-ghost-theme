@@ -35,6 +35,9 @@ blockquote {
 blockquote p:before, blockquote p:after{
 	display: none;
 }
+blockquote p:last-child {
+    margin: 0px;
+}
 blockquote a, blockquote a:visited {
 	color: #0da58e;
 }
@@ -533,6 +536,10 @@ footer .copyright a {
 }
 .pagination a.older-posts {
 	margin-left: 15px;
+}
+
+.mc-modal {
+	bottom: 100px !important;
 }
 
 @media (max-width: 991px) {
