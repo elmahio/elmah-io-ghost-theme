@@ -157,6 +157,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{asset "js/elmahio.min.js?apiKey=a789ddece0bd47fe83390b702f5713a9&logId=33b5a5cd-27ff-4898-9f87-e9d41cc70253" }}"></script>
         <script src="{{asset "js/bootstrap.min.js" }}"></script>
         <script src="{{asset "js/highlight.pack.js" }}"></script>
         <script src="{{asset "js/fuse.min.js" }}"></script>
@@ -170,7 +171,7 @@
         {{/if}}
         <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
         <script>
-            var mcForms = ["a5c4988234", "e6194de6d8"],
+            var mcForms = ["e6194de6d8"],
                 random = mcForms[Math.floor(Math.random() * mcForms.length)];
             require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":random}); });
         </script>
