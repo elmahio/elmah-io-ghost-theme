@@ -542,6 +542,20 @@ footer .copyright a {
 	bottom: 100px !important;
 }
 
+.kg-width-full img,
+.kg-width-wide img{
+    // required by gcsan to properly validate the theme
+}
+.kg-gallery-container figcaption {
+	// required by gcsan to properly validate the theme
+}
+.kg-gallery-row figcaption {
+	// required by gcsan to properly validate the theme
+}
+.kg-gallery-image figcaption {
+	// required by gcsan to properly validate the theme
+}
+
 @media (max-width: 991px) {
 	.navbar-expand-md>.container, .navbar-expand-md>.container-fluid {
 	    padding-right: 15px;

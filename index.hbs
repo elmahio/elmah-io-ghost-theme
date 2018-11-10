@@ -18,7 +18,7 @@ into the {body} of the default.hbs template --}}
 						{{#foreach posts}}
 						<div class="post">
 							<a class="post-title" href="{{ url }}">{{title}}</a>
-							<p>{{#author}}{{name}}{{/author}}, {{date published_at format="MMMM DD, YYYY"}} {{excerpt}} ...</p>
+							<p>{{#primary_author}}{{name}}{{/primary_author}}, {{date published_at format="MMMM DD, YYYY"}} {{excerpt}} ...</p>
 						</div>
 						{{/foreach}}
 					</div>
