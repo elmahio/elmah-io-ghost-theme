@@ -66,25 +66,31 @@ blockquote a, blockquote a:visited {
 
 .btn-hg {
 	font-weight: 100;
-	padding: 22px 33px;
+	padding: 12px 20px;
 	font-size: 24px;
 	white-space: initial;
 	border-radius: 8px;
 }
 .btn-signup-shadow {
+	width: 320px;
+	max-width: 320px;
 	background: #18A19A;
-    	color: #ffffff;
-    	border-color: #18b19b;
+	color: #ffffff !important;
+	border-color: #18b19b;
    	box-shadow: 0px 10px 14px -7px rgba(0,0,0,0.3) !important;
-    	background-image: linear-gradient(to bottom, #18b09b 5%, #18A19A 100%);
+	background-image: linear-gradient(to bottom, #18b09b 5%, #18A19A 100%);
 	border-radius: 100px;
 	font-size: 20px;
 	font-weight: 400;
 }
-.btn-signup-shadow .fa {
-	width: 16px;
-	height: 16px;
-	font-size: 70%;
+.btn-signup-shadow span {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+}
+.btn-signup-shadow span.info {
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .navbar {
@@ -350,7 +356,7 @@ code.powershell.hljs {
 }
 
 footer .btn {
-	width: 222px;
+	width: 280px;
 	outline: none;
 }
 footer .btn span {
