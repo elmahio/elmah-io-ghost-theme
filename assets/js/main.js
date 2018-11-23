@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	// Populate posts on ready
-	$.get(ghost.url.api('posts', {limit: 20, fields: "url,title,published_at"})).done(onSuccess);
+	$.get(ghost.url.api('posts', {limit: 15, fields: "url,title,published_at"})).done(onSuccess);
 
 	// Initialize highlight JS
 	hljs.initHighlightingOnLoad();
