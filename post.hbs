@@ -7,21 +7,53 @@ into the {body} of the default.hbs template --}}
 <div class="container mt-5 mb-5">
     <div class="row">
 
-    	{{> "sidebar"}}
+		{{> "sidebar"}}
 
-        <article class="col main-content">
+        <article class="col main-content order-2 order-md-1">
             <div class="main-content-body">
             	<div class="docs-box docs-post">
 					{{#post}}
 
 					<h1>{{title}}</h1>
+					<div class="addthis_inline_share_toolbox float-left" style="margin-top: -18px;"></div>
 					<div class="post-author">Written by {{authors}}, {{date published_at format="MMMM DD, YYYY"}}</div>
 
 					{{content}}
 
 					<br><br>
-					<div class="addthis_inline_share_toolbox"></div>
-					<p><small><em>This post was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
+
+					<div class="section section-features">
+						<div class="container p-0">
+							<div class="section-body">
+								<div class="row d-none d-sm-block">
+									<div class="col p-0">
+										<img class="img-fluid" src="http://elmah.io/images/features-image.png" alt="Features steps">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<img class="img-fluid d-inline-block d-sm-none" src="http://elmah.io//images/features-step-1.png" alt="We monitor your websites">
+										<h3>We monitor your websites</h3>
+										<p>We monitor your websites for crashes and availability. This helps you get an overview of the quality of your
+											applications and to spot trends in your releases.</p>
+									</div>
+									<div class="col-sm-4">
+										<img class="img-fluid d-inline-block d-sm-none" src="http://elmah.io//images/features-step-2.png" alt="We notify you">
+										<h3>We notify you</h3>
+										<p>We notify you when errors starts happening using Slack, HipChat, mail or other forms of communication to help
+											you react to errors before your users do.</p>
+									</div>
+									<div class="col-sm-4">
+										<img class="img-fluid d-inline-block d-sm-none" src="http://elmah.io//images/features-step-3.png" alt="We help you fix bugs">
+										<h3>We help you fix bugs</h3>
+										<p>We help you fix bugs quickly by combining error diagnostic information with innovative quick fixes and answers
+											from Stack Overflow and social media.</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 
 					<p class="text-center">
 						<a href="https://app.elmah.io/signup/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" class="btn btn-lg btn-primary d-none d-sm-block" style="white-space: normal;">See how we can help you monitor your website for crashes</a>
