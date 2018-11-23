@@ -562,6 +562,30 @@ footer .copyright a {
 	// required by gcsan to properly validate the theme
 }
 
+.section.section-features {
+    text-align: center;
+}
+
+.section.section-features img {
+	margin: 0px;
+}
+
+.section.section-features .section-body h3 {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.section.section-features .section-body p {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1200px;
+	}
+}
+
 @media (max-width: 991px) {
 	.navbar-expand-md>.container, .navbar-expand-md>.container-fluid {
 	    padding-right: 15px;
