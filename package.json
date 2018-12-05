@@ -12,7 +12,7 @@
         "url": "https://elmah.io"
     },
     "config": {
-        "posts_per_page": 5
+        "posts_per_page": 9
     },
 	"keywords": ["ghost-theme"]
 }

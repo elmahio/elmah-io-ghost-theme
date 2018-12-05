@@ -9,22 +9,49 @@ into the {body} of the default.hbs template --}}
 		{{> "sidebar"}}
 
         <article class="col main-content order-2 order-md-1">
-            <div class="main-content-body">
+			<div class="navbar breadcrumb-bar">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb m-0">
+						<li class="breadcrumb-item breadcrumb-first"><a href="https://blog.elmah.io/">elmah.io blog</a></li>
+						<li class="breadcrumb-item">Latest Posts</li>
+					</ol>
+				</nav>
+			</div>
 
-                <div class="docs-box">
-					<h1>elmah.io Blog</h1>
-					<h2>Latest posts</h2>
-					<div class="latestPosts">
-						{{#foreach posts}}
-						<div class="post">
-							<a class="post-title" href="{{ url }}">{{title}}</a>
-							<p>{{#primary_author}}{{name}}{{/primary_author}}, {{date published_at format="MMMM DD, YYYY"}} {{excerpt}} ...</p>
+			<div class="index-content-body">
+				<div class="card-deck">
+					{{!-- Posts here --}}
+					{{#foreach posts}}
+					<div class="card">
+						<div class="card-header">
+							<div class="post-title">
+								<a href="{{ url }}">{{title}}</a>
+							</div>
 						</div>
-						{{/foreach}}
+						<div class="card-body">
+							<div class="post-excerpt">
+								{{#if meta_description}}
+								<p>{{meta_description}}</p>
+								{{else}}
+								<p>{{excerpt}} ...</p>
+								{{/if}}
+							</div>
+						</div>
+						<div class="card-footer">
+							<div class="post-card-meta">
+								<div class="post-author">
+									{{#primary_author}}
+									<img src="{{profile_image}}" alt="{{name}}'s Picture">
+									<span class="author">{{name}}</span>
+									{{/primary_author}}
+									<span class="date">{{date published_at format="MMMM DD, YYYY"}}</span>
+								</div>
+							</div>
+						</div>
 					</div>
+					{{/foreach}}
 				</div>
-
-            </div>
+			</div>
         </article>
 
     </div>
