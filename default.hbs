@@ -13,7 +13,7 @@
 
         {{!-- Styles'n'Scripts --}}
         <link href="{{asset "css/bootstrap.min.css" }}" rel="stylesheet">
-        <link href="{{asset "fonts/font-awesome/css/font-awesome.min.css" }}" rel="stylesheet">
+        <link href="{{asset "fonts/font-awesome/css/all.min.css" }}" rel="stylesheet">
         <link href="{{asset "css/highlight.css" }}" rel="stylesheet">
         <link href="{{asset "css/style.css" }}" rel="stylesheet">
 
@@ -135,10 +135,9 @@
                         <div class="col">
                             <h5>Social</h5>
                             <ul class="list-unstyled social">
-                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fa fa-google-plus"></i></a></li>
-                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -164,6 +163,7 @@
         <script src="{{asset "js/bootstrap.min.js" }}"></script>
         <script src="{{asset "js/highlight.pack.js" }}"></script>
         <script src="{{asset "js/fuse.min.js" }}"></script>
+        <script src="{{asset "js/scrollProgress.js" }}"></script>
         <script src="{{asset "js/main.js" }}"></script>
 
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script>
@@ -183,11 +183,6 @@
         {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
         {{ghost_foot}}
 
-        <script>
-		  window.intercomSettings = {
-		    app_id: "i2hhgdvj"
-		  };
-		</script>
-		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+        <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "0953a6c5-b359-4b48-b055-9f7eb319862c"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })(); $crisp.push(["safe", true]);</script>
     </body>
 </html>

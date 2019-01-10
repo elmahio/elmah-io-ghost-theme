@@ -1,15 +1,43 @@
 <aside class="sidebar order-1 order-md-2">
     <div class="sidebar-body">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+        <div class="input-group d-none d-md-flex">
+            <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-search"></i></span></div>
             <input type="text" id="search" class="form-control" placeholder="Search ..." />
         </div>
         <div id="searchList"></div>
-        <hr>
-        <div class="posts-wrapper d-none d-md-block">
-            <h3>Posts</h3>
-            <div id="postList"></div>
+
+        <div id="featured-posts" class="posts-wrapper d-none d-md-block">
+            <h3>Featured Posts</h3>
+            <div id="featuredList">
+                <img class="d-block m-auto" src="{{asset "img/loading.gif"}}" alt="loading" />
+            </div>
         </div>
+
+        <div id="our-newsletter" class="posts-wrapper d-none d-md-block">
+            <h3>Join our newsletter</h3>
+            <div class="content">
+				<p>
+					<img src="{{asset "img/book.png"}}" alt=".NET Web Application Logging Essentials">
+					Sign up for our newsletter and receive a free copy of our book <strong>.NET Web Application Logging Essentials</strong>
+				</p>
+				<form method="post" action="https://elmah.us7.list-manage.com/subscribe?u=66fdd2122e968863d381a26e1&id=e6194de6d8">
+				<div class="input-group">
+					<input type="email" class="form-control" placeholder="Enter your email" name="MERGE0" required="">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</span>
+				</div>
+				</form>
+			</div>
+        </div>
+
+        <div id="blog-posts" class="posts-wrapper d-none d-md-block">
+            <h3>Blog Posts</h3>
+            <div id="postList">
+                <img class="d-block m-auto" src="{{asset "img/loading.gif"}}" alt="loading" />
+            </div>
+        </div>
+
         <a id="show-all-posts" href="javascript:;" class="btn btn-light btn-block">Show all posts</a>
     </div>
 </aside>

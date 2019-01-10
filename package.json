@@ -1,7 +1,7 @@
 {
     "name": "elmah-bs4-theme",
     "description": "Elmah.io blogging theme based on Bootstrap 4 framework.",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "engines": {
         "ghost": ">=1.0.0"
     },

@@ -1,7 +1,10 @@
 $(document).ready(function(){
 
-	// Populate posts on ready
-	$.get(ghost.url.api('posts', {limit: 15, fields: "url,title,published_at"})).done(onSuccess);
+	// Populate featured posts on ready
+	$.get(ghost.url.api('posts', {limit: 'all', filter: "featured: true", fields: "url,title"})).done(onSuccessDisplayFeatured);
+
+	// Populate all posts on ready
+	$.get(ghost.url.api('posts', {limit: '6', fields: "url,title,published_at"})).done(onSuccessDisplayPosts);
 
 	// Initialize highlight JS
 	hljs.initHighlightingOnLoad();
@@ -9,12 +12,29 @@ $(document).ready(function(){
 	// Style all tables - markdown fix
 	$('table').addClass('table table-striped table-hover');
 
+	// Add class to iframes and then add them into div
+	$('iframe').addClass('embed-responsive-item').wrap('<div class="embed-responsive embed-responsive-16by9"/>');
+
 	// Show all posts on click
     $('#show-all-posts').on('click', function(){
-    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title,published_at"})).done(onSuccess);
-    	$('.posts-wrapper').removeClass('d-none');
+    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title,published_at"})).done(onSuccessDisplayPosts);
+    	$('#blog-posts').removeClass('d-none');
+    	if ($('.progress-bar').length > 0) {
+    		setTimeout(function(){ progressObserver.trigger(); }, 1000);
+    	}
     	$(this).remove();
     });
+
+    // Shuffle posts
+    function shuffleArray(array) {
+	    for (var i = array.length - 1; i > 0; i--) {
+	        var j = Math.floor(Math.random() * (i + 1));
+	        var temp = array[i];
+	        array[i] = array[j];
+	        array[j] = temp;
+	    }
+	    return array;
+	}
 
     // Search function
     if($("#search").length != 0) {
@@ -53,7 +73,7 @@ $(document).ready(function(){
     }
 
     // Functions posts
-    function onSuccess(data) {
+    function onSuccessDisplayPosts(data) {
     	showArchive(data.posts);
 	}
 
@@ -77,13 +97,44 @@ $(document).ready(function(){
                 currentYear = postYear;
                 //Then show a month/year header
                 $("#postList > ul").append("<li class='"+monthNames[currentMonth]+"-"+currentYear+"'><a href='javascript:;'>" + monthNames[currentMonth] + " " + currentYear + "</a></li>");
-            	$("#postList > ul > li."+monthNames[currentMonth]+"-"+currentYear).append("<ul></ul>");
+            	$("#postList > ul > li."+monthNames[currentMonth]+"-"+currentYear).append("<ul class='post-links'></ul>");
             }
             //For every post, display a link.
             $("#postList > ul > li."+monthNames[currentMonth]+"-"+currentYear+" > ul").append("<li><a href='" + value.url +"'>" + value.title + "</a></li>");
         });
 
-        $('a[href="' + window.location.pathname + '"]').parent().addClass('active');
+        $('#postList a[href="' + window.location.pathname + '"]').parent().addClass('active');
 	}
 
+	function onSuccessDisplayFeatured(data) {
+    	showFeatured(data.posts);
+	}
+
+	function showFeatured(posts) {
+		let container = $("#featuredList");
+
+		var sortedPosts = shuffleArray(posts);
+    	var displayPosts = sortedPosts.slice(0,6);
+
+	    container.html('');
+	    container.append("<ul class='post-links'></ul>");
+
+        $(displayPosts).each(function(index,value){
+            $("#featuredList > ul").append("<li><a href='" + value.url +"'>" + value.title + "</a></li>");
+        });
+	}
 });
+
+$(window).on('load', function() {
+	if ($('.progress-bar').length > 0) {
+		progressObserver.trigger();
+	}
+});
+
+// Blog post progress
+if ($('.progress-bar').length > 0) {
+	var progressElement = document.querySelector('.progress-bar');
+	var progressObserver = new ScrollProgress(function(x, y) {
+  		progressElement.style.width = y * 100 + '%';
+	});
+}
