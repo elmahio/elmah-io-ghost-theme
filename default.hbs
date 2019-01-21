@@ -17,6 +17,13 @@
         <link href="{{asset "css/highlight.css" }}" rel="stylesheet">
         <link href="{{asset "css/style.css" }}" rel="stylesheet">
 
+        {{!-- If post has a feature_image, then create the meta --}}
+        {{#post}}
+        {{#if feature_image}}
+        <meta property="og:image" content="{{img_url feature_image absolute="true"}}" />
+        {{/if}}
+        {{/post}}
+
         {{!-- This tag outputs SEO meta+structured data and other important settings --}}
         {{ghost_head}}
 
