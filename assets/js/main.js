@@ -129,6 +129,11 @@ $(window).on('load', function() {
 	if ($('.progress-bar').length > 0) {
 		progressObserver.trigger();
 	}
+	$(".docs-box.docs-post img").each(function() {
+		if(!$(this).hasClass('no-flexbox')) {
+			$(this).wrap(function() { return "<a href=" + this.src + " data-fancybox></a>"; });
+		}
+	});
 });
 
 // Blog post progress

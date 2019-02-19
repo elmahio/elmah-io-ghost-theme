@@ -20,14 +20,21 @@
 					<img src="{{asset "img/book.png"}}" alt=".NET Web Application Logging Essentials">
 					Sign up for our newsletter and receive a free copy of our book <strong>.NET Web Application Logging Essentials</strong>
 				</p>
-				<form method="post" action="https://elmah.us7.list-manage.com/subscribe?u=66fdd2122e968863d381a26e1&id=e6194de6d8">
-				<div class="input-group">
-					<input type="email" class="form-control" placeholder="Enter your email" name="MERGE0" required="">
-					<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</span>
-				</div>
-				</form>
+                <form method="post" action="https://elmah.us7.list-manage.com/subscribe/post?u=66fdd2122e968863d381a26e1&amp;id=e6194de6d8&amp;MMERGE3=blog-newsletter">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="First Name" name="FNAME" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Last Name" name="LNAME" autocomplete="off">
+                    </div>
+                    <div class="input-group mb-0">
+                        <input type="email" class="form-control" placeholder="Enter your email" name="MERGE0" required="">
+                        <input type="hidden" name="MMERGE3" value="blog-newsletter">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </span>
+                    </div>
+                </form>
 			</div>
         </div>
 
@@ -39,5 +46,23 @@
         </div>
 
         <a id="show-all-posts" href="javascript:;" class="btn btn-light btn-block">Show all posts</a>
+
+        {{#post}}
+        <div id="blog-quote" class="posts-wrapper d-none d-md-block">
+            <a href="https://elmah.io/?utm_source=blogquote&utm_medium=blog&utm_campaign=blogquote">
+            	<div class="quote-symbol"><i class="fas fa-quote-left"></i></div>
+            	<div class="quote-container">
+            		<div class="main-quote">
+            			<p>"What a great idea, ELMAH (Error Logging) for .NET in the cloud."</p>
+            		</div>
+            		<div class="author-quote">
+            			<h4>Scott Hanselman</h4>
+            			<h5>Principal Program Manager </br> at Microsoft</h5>
+            			<img src="{{asset "img/scott-hanselman.jpg"}}" alt="Scott Hanselman" />
+            		</div>
+            	</div>
+            </a>
+        </div>
+        {{/post}}
     </div>
 </aside>
