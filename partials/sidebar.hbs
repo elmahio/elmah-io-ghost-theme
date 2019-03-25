@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div id="our-newsletter" class="posts-wrapper d-none d-md-block">
+        <div class="posts-wrapper our-newsletter d-none d-md-block">
             <h3>Join our newsletter</h3>
             <div class="content">
 				<p>
@@ -48,20 +48,22 @@
         <a id="show-all-posts" href="javascript:;" class="btn btn-light btn-block">Show all posts</a>
 
         {{#post}}
-        <div id="blog-quote" class="posts-wrapper d-none d-md-block">
-            <a href="https://elmah.io/?utm_source=blogquote&utm_medium=blog&utm_campaign=blogquote">
-            	<div class="quote-symbol"><i class="fas fa-quote-left"></i></div>
-            	<div class="quote-container">
-            		<div class="main-quote">
-            			<p>"What a great idea, ELMAH (Error Logging) for .NET in the cloud."</p>
-            		</div>
-            		<div class="author-quote">
-            			<h4>Scott Hanselman</h4>
-            			<h5>Principal Program Manager </br> at Microsoft</h5>
-            			<img src="{{asset "img/scott-hanselman.jpg"}}" alt="Scott Hanselman" />
-            		</div>
-            	</div>
-            </a>
+        <div class="sticky-sidebar">
+            <div id="blog-quote" class="posts-wrapper d-none d-md-block">
+                <a href="https://elmah.io/?utm_source=blogquote&utm_medium=blog&utm_campaign=blogquote">
+                	<div class="quote-symbol"><i class="fas fa-quote-left"></i></div>
+                	<div class="quote-container">
+                		<div class="main-quote">
+                			<p>"What a great idea, ELMAH (Error Logging) for .NET in the cloud."</p>
+                		</div>
+                		<div class="author-quote">
+                			<h4>Scott Hanselman</h4>
+                			<h5>Principal Program Manager </br> at Microsoft</h5>
+                			<img src="{{asset "img/scott-hanselman.jpg"}}" alt="Scott Hanselman" />
+                		</div>
+                	</div>
+                </a>
+            </div>
         </div>
         {{/post}}
     </div>

@@ -123,6 +123,21 @@ $(document).ready(function(){
             $("#featuredList > ul").append("<li><a href='" + value.url +"'>" + value.title + "</a></li>");
         });
 	}
+
+	// Sticky newsletter box
+	function showNewsletter() {
+		btnPosition = $('#show-all-posts').position().top;
+		scrollTop = $(window).scrollTop();
+		if((scrollTop >= btnPosition) && $('.newsletter-sticky').length === 0 ) {
+			$('.our-newsletter').clone().addClass('newsletter-sticky').hide().appendTo('.sticky-sidebar').fadeIn();
+		} else if ((scrollTop < btnPosition)) {
+			$('.newsletter-sticky').remove();
+		}
+	}
+	$(window).scroll(function (event) {
+	    showNewsletter();
+	});
+	showNewsletter();
 });
 
 $(window).on('load', function() {
