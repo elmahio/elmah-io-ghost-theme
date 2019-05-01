@@ -463,6 +463,14 @@ footer .copyright a {
 	color: #999;
 }
 
+footer .footer-badges img {
+	margin: 0px 3px;
+	height: 40px;
+}
+footer .footer-badges img:last-child {
+	margin-right: 0px;
+}
+
 
 .docs-box h2 {
   margin: 0px;
@@ -641,6 +649,9 @@ footer .copyright a {
 	.navbar-expand-md>.container, .navbar-expand-md>.container-fluid {
 	    padding-right: 15px;
 	    padding-left: 15px;
+	}
+	footer .footer-badges {
+		margin-bottom: 15px;
 	}
 }
 
@@ -844,6 +855,27 @@ footer .copyright a {
         -ms-flex: 1 0 calc(50% - 20px);
         flex: 1 0 calc(50% - 20px)
     }
+}
+
+.inside-post {
+	margin: 40px -30px 30px -30px;
+	border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+    background: #fbfbfb;
+    position: relative;
+    padding: 0px 20px;
+}
+.inside-post a {
+	display: block;
+	color: #0da58e;
+    text-decoration: none;
+	padding: 15px;
+}
+.inside-post a > p {
+	color: rgba(87,87,87,0.8);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .posts-navigation {

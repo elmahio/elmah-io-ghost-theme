@@ -56,7 +56,7 @@
                         <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
                     </ul>
                     <ul class="navbar-nav navbar-nav-btn">
-                    	<li class="nav-item mr-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/signup/?utm_source=blog-elmahio&utm_medium=blog&utm_campaign=blognavbar">Sign Up</a></li>
+                    	<li class="nav-item mr-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/signup/">Sign Up</a></li>
                         <li class="nav-item"><a class="btn btn-outline-light" href="https://app.elmah.io/login/">Login</a></li>
                     </ul>
                 </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="col text-right d-none d-lg-block">
-                        <a class="btn btn-hg btn-primary btn-signup-shadow text-center" href="https://app.elmah.io/signup/?utm_source=blog-elmahio&utm_medium=blog&utm_campaign=blogheader">
+                        <a class="btn btn-hg btn-primary btn-signup-shadow text-center" href="https://app.elmah.io/signup/">
                             <span>Sign Up Now</span>
                             <span class="info">no credit card required - free 21-day trial</span>
                         </a>
@@ -92,7 +92,7 @@
                     <div class="company-logo">
                         <img class="img-fluid" src="{{asset "img/elmahio.png"}}" alt="elmah.io">
                     </div>
-                    <a href="https://app.elmah.io/signup/?utm_source=blog-elmahio&utm_medium=blog&utm_campaign=blogfooter" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required - free 21-day trial</span></a>
+                    <a href="https://app.elmah.io/signup/" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required - free 21-day trial</span></a>
                 </div>
             </div>
             <div class="links">
@@ -147,9 +147,20 @@
             </div>
             <div class="copyright">
                 <div class="container">
-                    <div class="text-center">
-                        <p>2013 - {{date format="YYYY"}} @ elmah.io. All Rights Reserved.</p>
-                        <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-12 order-2 order-lg-1">
+                            <div class="text-center text-lg-left">
+                                <p>2013 - {{date format="YYYY"}} @ elmah.io. All Rights Reserved.</p>
+                                <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-12 order-1 order-lg-2">
+                            <div class="footer-badges text-center text-lg-right">
+                                <img src="{{asset "img/pcicompliant.png"}}" draggable="false" alt="PCI Compliant" />
+                                <img src="{{asset "img/gdpr.png"}}" draggable="false" alt="GDPR Compliant" />
+                                <img src="{{asset "img/shieldssl.png"}}" draggable="false" alt="Alpha SSL" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
