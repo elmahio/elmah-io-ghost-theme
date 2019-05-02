@@ -72,14 +72,13 @@ blockquote a, blockquote a:visited {
 	border-radius: 8px;
 }
 .btn-signup-shadow {
-	width: 320px;
-	max-width: 320px;
+	width: 300px;
+	max-width: 300px;
 	background: #18A19A;
 	color: #ffffff !important;
 	border-color: #18b19b;
    	box-shadow: 0px 10px 14px -7px rgba(0,0,0,0.3) !important;
 	background-image: linear-gradient(to bottom, #18b09b 5%, #18A19A 100%);
-	border-radius: 100px;
 	font-size: 20px;
 	font-weight: 400;
 }
@@ -141,6 +140,13 @@ blockquote a, blockquote a:visited {
 	margin: 0px;
 	font-weight: 500;
 	font-size: 18px;
+}
+.section-hero .t-shirt {
+	width: 96px;
+}
+.section-hero .col-signup {
+	-ms-flex: 0 0 350px;
+    flex: 0 0 350px;
 }
 
 .sidebar-body, .main-content-body {
@@ -820,7 +826,8 @@ footer .footer-badges img:last-child {
 }
 
 .index-content-body .card-deck .card .card-footer .post-card-meta .post-author img {
-	width: 25px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	margin-right: 10px;
 	float: left;
