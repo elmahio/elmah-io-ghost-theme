@@ -61,9 +61,13 @@ blockquote a, blockquote a:visited {
 .btn-outline-light {
 	box-shadow: none !important;
 }
-.btn-outline-light:focus {
-	color: #ffffff;
-	text-decoration: none;
+.btn-outline-light:hover,
+.btn-outline-light:focus,
+.btn-outline-light:active {
+	box-shadow: none;
+	color: #212529;
+    background-color: #f8f9fa;
+    text-decoration: none;
 }
 
 .btn-hg {
