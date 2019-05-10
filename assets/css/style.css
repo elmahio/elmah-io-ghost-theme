@@ -58,10 +58,12 @@ blockquote a, blockquote a:visited {
 	border-color: #18A19A;
 }
 
-.btn-light {
-	background: #ffffff;
-	border-color: #ced4da;
+.btn-outline-light {
 	box-shadow: none !important;
+}
+.btn-outline-light:focus {
+	color: #ffffff;
+	text-decoration: none;
 }
 
 .btn-hg {
@@ -121,13 +123,6 @@ blockquote a, blockquote a:visited {
 .navbar-signin li span.navbar-text {
 	padding: 10px;
 	color: #ffffff;
-}
-
-.btn-light:hover,
-.btn-light:focus,
-.btn-light:active {
-	color: #212529;
-	text-decoration: none;
 }
 
 .btn-signup-trial {
