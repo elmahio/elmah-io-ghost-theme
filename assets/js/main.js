@@ -138,6 +138,21 @@ $(document).ready(function(){
 	    showNewsletter();
 	});
 	showNewsletter();
+
+	// Navbar scroll
+	// navbar background color change on scroll
+    function navbarScroll() {
+        var scroll = $(window).scrollTop();
+        if(scroll < 10){
+            $('.navbar-dark').removeClass('dark-mode');
+        } else{
+            $('.navbar-dark').addClass('dark-mode');
+        }
+    }
+    $(window).scroll(function(){
+        navbarScroll();
+    });
+    navbarScroll();
 });
 
 $(window).on('load', function() {

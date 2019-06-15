@@ -77,16 +77,20 @@ blockquote a, blockquote a:visited {
 	white-space: initial;
 	border-radius: 8px;
 }
+.btn:active {
+    transform: translateY(1px);
+}
 .btn-signup-shadow {
 	width: 300px;
 	max-width: 300px;
-	background: #18A19A;
+	background: #fc6076;
+    background-image: linear-gradient(-20deg,#fc6076 0%,#ff9a44 100%) !important;
+    border-color: rgba(252,96,118,.5) !important;
 	color: #ffffff !important;
-	border-color: #18b19b;
-   	box-shadow: 0px 10px 14px -7px rgba(0,0,0,0.3) !important;
-	background-image: linear-gradient(to bottom, #18b09b 5%, #18A19A 100%);
+   	box-shadow: 0 10px 14px -7px rgba(0,0,0,.3) !important;
 	font-size: 20px;
 	font-weight: 400;
+	text-decoration: none !important;
 }
 .btn-signup-shadow span {
     display: block;
@@ -130,19 +134,35 @@ blockquote a, blockquote a:visited {
 }
 
 .btn-signup-trial {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-signup-trial:hover,.btn-signup-trial:focus,.btn-signup-trial:active {
+    box-shadow: none;
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    text-decoration: none;
+}
+
+.dark-mode .btn-signup-trial {
     background: #ff9a44;
     color: #fff;
     border: 1px solid #fc6076;
     background-image: linear-gradient(-20deg,#fc6076 0%,#ff9a44 100%);
+    text-decoration: none;
 }
-.btn-signup-trial:hover,
-.btn-signup-trial:focus,
-.btn-signup-trial:active {
+
+.dark-mode .btn-signup-trial:hover,.dark-mode .btn-signup-trial:focus,.dark-mode .btn-signup-trial:active {
     color: #fff;
     background: #ff9a44;
     box-shadow: none;
     text-decoration: none;
     background-image: linear-gradient(-20deg,#ff9a44 0%,#fc6076 100%);
+    text-decoration: none;
 }
 
 .section-hero {
@@ -427,7 +447,7 @@ code.powershell.hljs {
 }
 
 footer .btn {
-	width: 280px;
+	width: 222px;
 	outline: none;
 }
 footer .btn span {
@@ -442,6 +462,8 @@ footer .btn span.info {
 footer .btn.btn-primary {
 	background-color: #0da58e;
     border-color: #0da58e;
+    color: #ffffff !important;
+    text-decoration: none !important;
 }
 footer .btn.btn-primary:hover {
     background-color: #0d917d;
