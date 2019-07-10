@@ -1084,3 +1084,40 @@ kbd {
 		display: none;
 	}
 }
+
+.accordion {
+	margin-top: 20px;
+}
+.accordion .card {
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px -2px rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.125) !important;
+}
+.accordion .card .card-header {
+    padding: 1rem 1.25rem;
+    background: #fff
+}
+.accordion .card .card-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    padding-right: 30px;
+    cursor: pointer;
+    position: relative;
+}
+.accordion .card .card-header h4:after {
+    content: "";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.accordion .card .card-header h4.collapsed:after {
+    content: ""
+}
+.accordion .card .card-body {
+    background: #f8f9fa
+}
+.accordion .card .card-body p {
+    font-size: 16px
+}
