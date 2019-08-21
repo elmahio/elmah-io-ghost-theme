@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
 	// Populate featured posts on ready
-	$.get(ghost.url.api('posts', {limit: 'all', filter: "featured: true", fields: "url,title"})).done(onSuccessDisplayFeatured);
+	$.get(ghost.url.api('posts', {limit: 'all', filter: "featured: true", fields: "id,url,title"})).done(onSuccessDisplayFeatured);
 
 	// Populate all posts on ready
-	$.get(ghost.url.api('posts', {limit: '6', fields: "url,title,published_at"})).done(onSuccessDisplayPosts);
+	$.get(ghost.url.api('posts', {limit: '6', fields: "id,url,title,published_at"})).done(onSuccessDisplayPosts);
 
 	// Initialize highlight JS
 	hljs.initHighlightingOnLoad();
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 	// Show all posts on click
     $('#show-all-posts').on('click', function(){
-    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title,published_at"})).done(onSuccessDisplayPosts);
+    	$.get(ghost.url.api('posts', {limit: 'all', fields: "id,url,title,published_at"})).done(onSuccessDisplayPosts);
     	$('#blog-posts').removeClass('d-none');
     	if ($('.progress-bar').length > 0) {
     		setTimeout(function(){ progressObserver.trigger(); }, 1000);
@@ -38,7 +38,7 @@ $(document).ready(function(){
 
     // Search function
     if($("#search").length != 0) {
-    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title"})).done(searchData);
+    	$.get(ghost.url.api('posts', {limit: 'all', fields: "id,url,title"})).done(searchData);
 
     	function searchData(data) {
     		let container = $("#searchList");
