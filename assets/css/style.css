@@ -154,6 +154,38 @@ blockquote a, blockquote a:visited {
     border: 1px solid #fc6076;
     background-image: linear-gradient(-20deg,#fc6076 0%,#ff9a44 100%);
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+.dark-mode .btn-signup-trial:after {
+	background: #fff;
+    content: "";
+    height: 155px;
+    left: -80px;
+    opacity: .25;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    width: 50px;
+    animation-name: try-btn-animation;
+    animation-duration: 12s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    box-shadow: 0 0 7px 7px #fff;
+}
+
+@keyframes try-btn-animation {
+    0% {
+        left: -90px
+    }
+    10% {
+        left: 110px
+    }
+    to {
+        left: 110px
+    }
 }
 
 .dark-mode .btn-signup-trial:hover,.dark-mode .btn-signup-trial:focus,.dark-mode .btn-signup-trial:active {
