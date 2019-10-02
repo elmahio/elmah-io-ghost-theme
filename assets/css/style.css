@@ -614,9 +614,11 @@ footer .footer-badges img:last-child {
 
 /* Author page */
 .author-header-content {
-  margin: -40px;
-  background: #f8f8f8;
-  border-bottom: 1px solid #ddd;
+	margin: -30px;
+	background: #f8f8f8;
+	border-bottom: 1px solid #ddd;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 .author-header-content h1:after {
 	border: none;
@@ -625,13 +627,15 @@ footer .footer-badges img:last-child {
   margin-bottom: 30px;
 }
 .author-header-content .author-cover-image {
-  height: 300px;
-  background: 50% no-repeat #fafafa;
-  background-size: cover;
+	height: 300px;
+	background: 50% no-repeat #fafafa;
+	background-size: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .author-profile {
   text-align: center;
-  padding: 40px;
+  padding: 30px;
 }
 .author-profile .author-profile-image {
   width: 150px;
@@ -659,14 +663,17 @@ footer .footer-badges img:last-child {
 .author-profile .author-meta .social-link {
   display: inline-block;
 }
+.author-profile .author-meta .social-link {
+	margin: 0px 2px;
+}
 .author-profile .author-meta .bull {
   display: inline-block;
   margin: 0 8px;
   opacity: .5;
 }
 .post-feed {
-  margin-top: 40px;
-  padding-top: 40px;
+  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .pagination {

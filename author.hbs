@@ -34,21 +34,22 @@ into the {body} of the default.hbs template --}}
 				                    {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}} <span class="bull">&bull;</span>
 				                </div>
 				                {{#if website}}
-				                    <a class="social-link social-link-wb" href="{{website}}" target="_blank" rel="noopener"><span class="fa fa-globe"></span></a>
+				                    <a class="social-link social-link-wb" href="{{website}}" target="_blank" rel="noopener"><span class="fas fa-globe"></span></a>
 				                {{/if}}
 				                {{#if twitter}}
-				                    <a class="social-link social-link-tw" href="{{twitter_url}}" target="_blank" rel="noopener"><span class="fa fa-twitter"></span></a>
+				                    <a class="social-link social-link-tw" href="{{twitter_url}}" target="_blank" rel="noopener"><span class="fab fa-twitter"></span></a>
 				                {{/if}}
 				                {{#if facebook}}
-				                    <a class="social-link social-link-fb" href="{{facebook_url}}" target="_blank" rel="noopener"><span class="fa fa-facebook"></span></a>
+				                    <a class="social-link social-link-fb" href="{{facebook_url}}" target="_blank" rel="noopener"><span class="fab fa-facebook-f"></span></a>
 				                {{/if}}
-				                <a class="social-link social-link-rss" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}/rss/" target="_blank" rel="noopener"><span class="fa fa-rss"></span></a>
+				                <a class="social-link social-link-rss" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}/rss/" target="_blank" rel="noopener"><span class="fas fa-rss"></span></a>
 				            </div>
 			        	</div>
 			        </div>
 			        {{/author}}
 
 			        <div class="post-feed">
+			        	{{#if posts}}
 			            {{#foreach posts}}
 		            	<div class="post">
 							<a class="post-title" href="{{ url }}">{{title}}</a>
@@ -56,6 +57,10 @@ into the {body} of the default.hbs template --}}
 						</div>
 			            {{/foreach}}
 			            {{pagination}}
+
+			            {{else}}
+			            <p class="mb-0">No posts.</p>
+			            {{/if}}
 			        </div>
 				</div>
 
