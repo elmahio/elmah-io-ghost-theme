@@ -9,6 +9,9 @@ $(document).ready(function(){
 	// Initialize highlight JS
 	hljs.initHighlightingOnLoad();
 
+	// Gif Player
+	$('.gif').gifplayer();
+
 	// Style all tables - markdown fix
 	$('table').addClass('table table-striped table-hover');
 
