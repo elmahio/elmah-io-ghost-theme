@@ -10,7 +10,9 @@ $(document).ready(function(){
 	hljs.initHighlightingOnLoad();
 
 	// Gif Player
-	$('.gif').gifplayer();
+	$('.gif').each(function(el){
+		new gifsee(this);
+	});
 
 	// Style all tables - markdown fix
 	$('table').addClass('table table-striped table-hover');
@@ -163,7 +165,7 @@ $(window).on('load', function() {
 		progressObserver.trigger();
 	}
 	$(".docs-box.docs-post img").each(function() {
-		if(!$(this).hasClass('no-flexbox')) {
+		if(!$(this).hasClass('no-flexbox') && !$(this).hasClass('gif')) {
 			$(this).wrap(function() { return "<a href=" + this.src + " data-fancybox></a>"; });
 		}
 	});
