@@ -1,10 +1,48 @@
 $(document).ready(function(){
 
+	const api = new GhostContentAPI({
+		url: 'https://elmah-io-blog.ghost.io',
+		key: 'dd579bc92a2a2965ad52746140',
+		version: "v3"
+	});
+
 	// Populate featured posts on ready
-	$.get(ghost.url.api('posts', {limit: 'all', filter: "featured: true", fields: "url,title"})).done(onSuccessDisplayFeatured);
+	api.posts.browse({include: 'url,title', limit: 'all', filter: 'featured:true'}).then((posts) => { showFeatured(posts); });
 
 	// Populate all posts on ready
-	$.get(ghost.url.api('posts', {limit: '6', fields: "url,title,published_at"})).done(onSuccessDisplayPosts);
+	api.posts.browse({include: 'url,title,published_at', limit: '6'}).then((posts) => { showArchive(posts); });
+
+	// Create TOC
+	if($('.toc').length != 0) {
+		var toc = $('.toc');
+		toc.html('');
+		toc.append('<div class="toc-header"><h2><i class="fal fa-list-alt mr-1"></i> Contents</h2><button class="btn btn-outline-secondary btn-sm" id="showContents">Show contents</buttton></div>');
+		toc.append('<ul class="toc-links"></ul>');
+		$('.docs-post h1, .docs-post h2, .docs-post h3, .docs-post h4, .docs-post h5, .docs-post h6').each(function(index, elem){
+			if($(elem).attr('id')){
+				$(".toc > ul").append("<li><a href='#" + elem.id +"'>" + elem.innerText + "</a></li>");
+			}
+		});
+
+		// Show TOC when done
+		$(toc).show();
+
+		// Show contents
+		$('#showContents').on('click', function(){
+			$(this).remove();
+			$('.toc-links').show();
+		});
+
+		// Add functionality
+        $('.toc a').on('click', function(){
+            var target = $(this.hash);
+
+            // Scroll to target
+            $('html, body').animate({
+                scrollTop: (target.offset().top - 80)
+            }, 500);
+        });
+	}
 
 	// Initialize highlight JS
 	hljs.initHighlightingOnLoad();
@@ -22,7 +60,8 @@ $(document).ready(function(){
 
 	// Show all posts on click
     $('#show-all-posts').on('click', function(){
-    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title,published_at"})).done(onSuccessDisplayPosts);
+    	api.posts.browse({include: 'url,title,published_at', limit: 'all'}).then((posts) => { showArchive(posts); });
+
     	$('#blog-posts').removeClass('d-none');
     	if ($('.progress-bar').length > 0) {
     		setTimeout(function(){ progressObserver.trigger(); }, 1000);
@@ -43,7 +82,7 @@ $(document).ready(function(){
 
     // Search function
     if($("#search").length != 0) {
-    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title"})).done(searchData);
+    	api.posts.browse({include: 'url,title', limit: 'all'}).then((posts) => { searchData(posts); });
 
     	function searchData(data) {
     		let container = $("#searchList");
@@ -60,7 +99,7 @@ $(document).ready(function(){
 				]
 			};
 
-			let fuse = new Fuse(data.posts, options);
+			let fuse = new Fuse(data, options);
 
 			$('#search').on('keyup', function(){
 				let result = fuse.search(this.value);
@@ -76,11 +115,6 @@ $(document).ready(function(){
 			});
     	}
     }
-
-    // Functions posts
-    function onSuccessDisplayPosts(data) {
-    	showArchive(data.posts);
-	}
 
 	function showArchive(posts) {
 		let container = $("#postList");
@@ -109,10 +143,6 @@ $(document).ready(function(){
         });
 
         $('#postList a[href="' + window.location.pathname + '"]').parent().addClass('active');
-	}
-
-	function onSuccessDisplayFeatured(data) {
-    	showFeatured(data.posts);
 	}
 
 	function showFeatured(posts) {
@@ -168,6 +198,11 @@ $(window).on('load', function() {
 		if(!$(this).hasClass('no-flexbox') && !$(this).hasClass('gif')) {
 			$(this).wrap(function() { return "<a href=" + this.src + " data-fancybox></a>"; });
 		}
+	});
+	$(".language-console").each(function(){
+		$(this).parent().addClass('pre-console');
+		$(this).parent().wrap(function() { return $("<div class='cmd'></div>"); });
+		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span></div><div class='cmd-buttons d-block' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-fancybox><i class='fal fa-window-minimize'></i><i class='fal fa-clone'></i><i class='fal fa-times'></i></div></div>");
 	});
 });
 

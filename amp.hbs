@@ -45,7 +45,7 @@
     <header class="main-header">
         <nav class="blog-title">
         	<amp-img class="amp-elmah-logo" src="{{asset "img/logo.png"}}" alt="elmah.io" width="35" height="25.6" layout="fixed"></amp-img>
-            <a href="{{@blog.url}}">{{@blog.title}}</a>
+            <a href="{{@site.url}}">{{@site.title}}</a>
             <amp-img class="amp-open-sidebar" src="{{asset "img/hamburger.png"}}" width="40" height="40" alt="open sidebar" on="tap:sidebar.open" role="button" tabindex="1"></amp-img>
         </nav>
     </header>
@@ -78,7 +78,7 @@
     </main>
     {{/post}}
     <footer class="site-footer clearfix">
-        <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
+        <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
     </footer>
 </body>
 </html>
