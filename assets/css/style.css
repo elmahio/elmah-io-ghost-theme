@@ -23,6 +23,10 @@ a:focus {
 	outline-offset: -2px;
 }
 
+a[data-fancybox] img {
+	cursor: zoom-in;
+}
+
 blockquote {
 	padding: 10px 20px;
 	margin: 0 0 20px;
@@ -1192,6 +1196,11 @@ kbd {
 .toc li a {
 	color: #222;
 	font-size: 15px;
+}
+.toc li.child a {
+	color: #222;
+	font-size: 15px;
+	margin-left: 20px;
 }
 
 /* Console hljs - CMD */

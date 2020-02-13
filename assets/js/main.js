@@ -18,9 +18,11 @@ $(document).ready(function(){
 		toc.html('');
 		toc.append('<div class="toc-header"><h2><i class="fal fa-list-alt mr-1"></i> Contents</h2><button class="btn btn-outline-secondary btn-sm" id="showContents">Show contents</buttton></div>');
 		toc.append('<ul class="toc-links"></ul>');
-		$('.docs-post h1, .docs-post h2, .docs-post h3, .docs-post h4, .docs-post h5, .docs-post h6').each(function(index, elem){
+		$('.docs-post h2, .docs-post h3').each(function(index, elem){
 			if($(elem).attr('id')){
-				$(".toc > ul").append("<li><a href='#" + elem.id +"'>" + elem.innerText + "</a></li>");
+				var addClass = "";
+				if($(elem).is('h3')) { addClass = ' class="child"'; }
+				$(".toc > ul").append("<li"+addClass+"><a href='#" + elem.id +"'>" + elem.innerText + "</a></li>");
 			}
 		});
 

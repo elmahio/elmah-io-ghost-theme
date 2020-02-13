@@ -207,6 +207,7 @@
 				if(!(/^(.*;)?\s*MCPopupClosed\s*=/.test(document.cookie))) {
                     var iframe = $('iframe[data-dojo-attach-point="iframeModalContainer"]');
                     $(iframe).contents().find('form').append('<input type="hidden" name="MMERGE3" value="blog-popup">');
+                    $(iframe).contents().find('form .content__button .button').attr('id', 'buttonNewsletterPopup');
                 }
 			};
         </script>
