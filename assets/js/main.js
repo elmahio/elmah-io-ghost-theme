@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+	// Run Elmah.Io.JS only on production
+	if (window.location.hostname != "localhost" && window.location.hostname != "127.0.0.1") {
+		var log = new Elmahio({
+			apiKey: 'a789ddece0bd47fe83390b702f5713a9',
+			logId: '33b5a5cd-27ff-4898-9f87-e9d41cc70253',
+			debug: true
+		});
+	}
+
 	const api = new GhostContentAPI({
 		url: 'https://elmah-io-blog.ghost.io',
 		key: 'dd579bc92a2a2965ad52746140',
@@ -163,12 +172,14 @@ $(document).ready(function(){
 
 	// Sticky newsletter box
 	function showNewsletter() {
-		btnPosition = $('#show-all-posts').position().top;
-		scrollTop = $(window).scrollTop();
-		if((scrollTop >= btnPosition) && $('.newsletter-sticky').length === 0 ) {
-			$('.our-newsletter').clone().addClass('newsletter-sticky').hide().appendTo('.sticky-sidebar').fadeIn();
-		} else if ((scrollTop < btnPosition)) {
-			$('.newsletter-sticky').remove();
+		if($('#show-all-posts').length) {
+			btnPosition = $('#show-all-posts').position().top;
+			scrollTop = $(window).scrollTop();
+			if((scrollTop >= btnPosition) && $('.newsletter-sticky').length === 0 ) {
+				$('.our-newsletter').clone().addClass('newsletter-sticky').hide().appendTo('.sticky-sidebar').fadeIn();
+			} else if ((scrollTop < btnPosition)) {
+				$('.newsletter-sticky').remove();
+			}
 		}
 	}
 	$(window).scroll(function (event) {
