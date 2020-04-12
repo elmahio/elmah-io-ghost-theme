@@ -10,8 +10,8 @@ $(document).ready(function(){
 	}
 
 	const api = new GhostContentAPI({
-		url: 'https://elmah-io-blog.ghost.io',
-		key: 'dd579bc92a2a2965ad52746140',
+		url: 'https://blog.elmah.io',
+		key: 'e234f3eb3524c54b6643941b44',
 		version: "v3"
 	});
 
