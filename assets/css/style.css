@@ -721,6 +721,29 @@ footer .footer-badges img:last-child {
 	z-index: 999;
 }
 
+.book-wrapper {
+	border-bottom: 1px solid #ddd;
+}
+.book-wrapper.first {
+	margin-top: 30px;
+}
+.book-wrapper.last {
+	margin-bottom: 30px;
+	border-bottom: none;
+}
+.book-wrapper h2 {
+	margin-top: 20px;
+	word-break: break-word;
+}
+.book-wrapper p {
+	margin-bottom: 20px;
+}
+.book-wrapper img {
+	max-width:120px;
+	float:right;
+	margin:0px 0px 20px 20px;
+}
+
 @media (min-width: 1200px) {
 	.container {
 		max-width: 1200px;
