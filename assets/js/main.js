@@ -161,15 +161,17 @@ $(document).ready(function(){
         });
 	}
 
-	// Sticky newsletter box
+	// Sticky newsletter box && signup box
 	function showNewsletter() {
 		if($('#show-all-posts').length) {
 			btnPosition = $('#show-all-posts').position().top;
 			scrollTop = $(window).scrollTop();
 			if((scrollTop >= btnPosition) && $('.newsletter-sticky').length === 0 ) {
 				$('.our-newsletter').clone().addClass('newsletter-sticky').hide().appendTo('.sticky-sidebar').fadeIn();
+				$('.box-signup').removeClass('hide').hide().fadeIn();
 			} else if ((scrollTop < btnPosition)) {
 				$('.newsletter-sticky').remove();
+				$('.box-signup').addClass('hide');
 			}
 		}
 	}

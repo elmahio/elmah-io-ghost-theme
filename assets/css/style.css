@@ -105,6 +105,13 @@ blockquote a, blockquote a:visited {
     font-size: 14px;
     font-weight: 400;
 }
+.btn-signup-box {
+	width: 100%;
+	max-width: 100%;
+}
+.btn-signup-box span {
+	font-size: 21px;
+}
 
 .navbar {
 	padding: 14px 0px;
@@ -1273,6 +1280,10 @@ kbd {
 	color: #ddd;
 	font-weight: 400 !important;
 	font-style: normal !important;
+}
+
+.hide {
+	display: none !important;
 }
 
 
