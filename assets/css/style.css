@@ -313,7 +313,7 @@ blockquote a, blockquote a:visited {
 	font-weight: 600;
     font-size: 18px;
     padding: 15px 20px;
-    margin: -10px -15px 15px;
+    margin: -12px -15px 15px;
     border-bottom: 1px solid #eae9e7;
     color: #444;
 }
@@ -372,6 +372,17 @@ ul.post-links > li.active > a:before {
 	margin-top: 30px;
 	box-shadow: 1px 2px 5px 0 rgba(52,40,22,.04), 0 1px 2px 0 rgba(53,40,22,.04) !important;
 	border: none;
+}
+#related-posts h3 {
+	position: relative;
+}
+#related-posts h3:after {
+	content: '\f022';
+	position: absolute;
+	top:15px;
+	right:20px;
+	font-family: "Font Awesome 5 Pro";
+    font-weight: 300;
 }
 .main-nav .mCSB_scrollTools .mCSB_draggerRail {
 	background-color: #ddd;

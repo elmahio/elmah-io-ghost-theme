@@ -6,11 +6,16 @@ $(document).ready(function(){
 		version: "v3"
 	});
 
+	// IF - In this series, remove featured
+    if($("#related-posts").length !== 0) {
+    	$('#featured-posts').remove();
+    }
+
 	// Populate featured posts on ready
-	api.posts.browse({include: 'url,title', limit: 'all', filter: 'featured:true'}).then((posts) => { showFeatured(posts); });
+	api.posts.browse({include: 'url,title', limit: 'all', filter: 'featured:true'}).then( function(posts) { showFeatured(posts); });
 
 	// Populate all posts on ready
-	api.posts.browse({include: 'url,title,published_at', limit: '6'}).then((posts) => { showArchive(posts); });
+	api.posts.browse({include: 'url,title,published_at', limit: '6'}).then( function(posts) { showArchive(posts); });
 
 	// Create TOC
 	if($('.toc').length != 0) {

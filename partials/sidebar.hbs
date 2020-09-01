@@ -6,6 +6,20 @@
         </div>
         <div id="searchList"></div>
 
+        {{#post}}
+            {{!-- Related Posts - In this series --}}
+            {{#get "posts" include="url,title" filter="id:-{{id}}+tag:{{primary_tag.slug}}" as |related|}}
+            <div id="related-posts" class="posts-wrapper d-none d-md-block">
+                <h3>In this series</h3>
+                <ul class="post-links">
+                {{#foreach related}}
+                    <li><a href="{{url}}">{{title}}</a></li>
+                {{/foreach}}
+                </ul>
+            </div>
+            {{/get}}
+        {{/post}}
+
         <div id="featured-posts" class="posts-wrapper d-none d-md-block">
             <h3>Featured Posts</h3>
             <div id="featuredList">
