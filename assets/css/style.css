@@ -105,6 +105,9 @@ blockquote a, blockquote a:visited {
     font-size: 14px;
     font-weight: 400;
 }
+.box-signup {
+	margin-top: 30px;
+}
 .btn-signup-box {
 	width: 100%;
 	max-width: 100%;
