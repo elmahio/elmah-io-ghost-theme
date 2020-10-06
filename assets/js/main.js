@@ -198,7 +198,7 @@ $(document).ready(function(){
     $(window).scroll(function(){
         navbarScroll();
     });
-    navbarScroll();
+	navbarScroll();
 });
 
 $(window).on('load', function() {
@@ -213,8 +213,18 @@ $(window).on('load', function() {
 	$(".language-console").each(function(){
 		$(this).parent().addClass('pre-console');
 		$(this).parent().wrap(function() { return $("<div class='cmd'></div>"); });
-		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span></div><div class='cmd-buttons d-block' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-fancybox><i class='fal fa-window-minimize'></i><i class='fal fa-clone'></i><i class='fal fa-times'></i></div></div>");
+		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span></div><div class='cmd-buttons d-block' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-window-minimize'></i><i class='fal fa-clone'></i><i class='fal fa-times'></i></div></div>");
 	});
+});
+
+// BSOD
+$().fancybox({
+    selector: '[data-bsod]',
+    beforeLoad: function(instance, current) {
+		if(current.src === "https://blog.elmah.io/content/images/2019/12/bsod.png") {
+			$(instance.$refs.container[0]).addClass('fancybox-bsod');
+		}
+	}
 });
 
 // Blog post progress
