@@ -1296,7 +1296,7 @@ kbd {
 	font-style: normal !important;
 }
 
-.fancybox-is-open.fancybox-bsod .fancybox-bg {
+.fancybox-bsod .fancybox-bg {
 	background: #000080;
 	opacity: 1;
 	transition: none;
