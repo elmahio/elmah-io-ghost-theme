@@ -101,6 +101,7 @@ $(document).ready(function(){
 				distance: 100,
 				maxPatternLength: 32,
 				minMatchCharLength: 1,
+				ignoreLocation: true,
 				keys: [
 			    	"title"
 				]
@@ -117,7 +118,7 @@ $(document).ready(function(){
 	    			container.append("<ul><h3>Search results</h3></ul>");
 	    		}
 				result.forEach(function(value){
-					$("#searchList ul").append("<li><a href='" + value.url +"'>" + value.title + "</a></li>");
+					$("#searchList ul").append("<li><a href='" + value.item.url +"'>" + value.item.title + "</a></li>");
 				});
 			});
     	}

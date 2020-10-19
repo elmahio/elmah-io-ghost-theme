@@ -294,7 +294,7 @@ blockquote a, blockquote a:visited {
 #searchList ul li a {
   	position: relative;
 	display: block;
-	padding: 0px;
+	padding: 0px 4px;
 	font-size: 13px;
 	font-weight: 600;
 	color: rgba(87,87,87,.8);
