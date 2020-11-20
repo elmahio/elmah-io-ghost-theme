@@ -110,16 +110,21 @@ $(document).ready(function(){
 			let fuse = new Fuse(data, options);
 
 			$('#search').on('keyup', function(){
-				let result = fuse.search(this.value);
-				if(result.length === 0) {
-					container.html('');
+				if(this.value) {
+					let result = fuse.search(this.value);
+
+					if(result.length === 0) {
+						container.html('');
+					} else {
+						container.html('');
+		    			container.append("<ul><h3>Search results</h3></ul>");
+		    		}
+					result.forEach(function(value){
+						$("#searchList ul").append("<li><a href='" + value.item.url +"'>" + value.item.title + "</a></li>");
+					});
 				} else {
-					container.html('');
-	    			container.append("<ul><h3>Search results</h3></ul>");
-	    		}
-				result.forEach(function(value){
-					$("#searchList ul").append("<li><a href='" + value.item.url +"'>" + value.item.title + "</a></li>");
-				});
+					$("#searchList").empty();
+				}
 			});
     	}
     }
