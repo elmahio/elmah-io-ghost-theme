@@ -23,3 +23,20 @@ It's a good idea to keep this template as minimal as possible in terms of both f
 
     </div>
 </div>
+
+<script>
+    function send404Error() {
+        var script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.3.1/dist/elmahio.min.js";
+        document.body.append(script);
+        script.addEventListener("load", function(){
+            var logger = new Elmahio({ apiKey: 'a789ddece0bd47fe83390b702f5713a9', logId: '33b5a5cd-27ff-4898-9f87-e9d41cc70253' });
+            var msg = logger.message();
+            msg.title = "Requesting non-existing page";
+            msg.statusCode = 404;
+            logger.log(msg);
+        });
+    }
+
+    if (window.location.hostname === "blog.elmah.io") { send404Error(); }
+</script>
