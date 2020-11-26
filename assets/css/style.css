@@ -1401,3 +1401,23 @@ kbd {
     content: "•";
     margin: 0 .5em;
 }
+
+
+/* link card */
+.kg-card.kg-bookmark-card .kg-bookmark-container .kg-bookmark-thumbnail a img {
+	margin: 0px;
+}
+.kg-card.kg-bookmark-card .kg-bookmark-container .kg-bookmark-metadata a img.kg-bookmark-icon {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.kg-card.kg-bookmark-card .kg-bookmark-container .kg-bookmark-thumbnail {
+	flex-basis: 20rem;
+}
+
+/* Copyright */
+.copyright a {
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+}
