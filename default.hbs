@@ -12,6 +12,10 @@
         <meta name="HandheldFriendly" content="True" />
 
         {{!-- Styles'n'Scripts --}}
+        <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
+        <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
+        <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-solid-900.woff2" as="font" crossorigin />
+
         <link href="{{asset "css/bootstrap.min.css" }}" rel="stylesheet">
         <link href="{{asset "fonts/font-awesome/css/all.min.css" }}" rel="stylesheet">
         <link href="{{asset "css/highlight.css" }}" rel="stylesheet">
@@ -91,7 +95,7 @@
             <div class="pre-footer">
                 <div class="container">
                     <div class="company-logo">
-                        <img class="img-fluid" src="{{asset "img/elmahio.png"}}" alt="elmah.io">
+                        <img class="img-fluid" src="{{asset "img/elmahio.svg"}}" alt="elmah.io">
                     </div>
                     <a href="https://app.elmah.io/signup/" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
                 </div>
