@@ -52,7 +52,52 @@ $(document).ready(function(){
 	}
 
 	// Initialize highlight JS
-	hljs.initHighlightingOnLoad();
+	function initHighlight(wrapperHighlight) {
+		hljs.initHighlighting();
+		wrapperHighlight();
+		$('body').append('<div class="fullscreen-code js-fullscreen-code"></div>');
+	}
+
+	// Wrap highlight
+	function wrapperHighlight() {
+		$('.hljs:not(.language-console)').parent().wrap('<div class="hljs-wrapper"></div>');
+		$('.hljs-wrapper').append('<div class="hljs-actions-panel"></div>');
+		$('.hljs-wrapper .hljs-actions-panel').prepend('<button class="btn-fullscreen-mode" title="Enter fullscreen mode"><i class="fas fa-expand"></i></button>');
+	}
+
+	// Add fullscreen mode functionality
+	function addFullscreenMode() {
+		var isFullScreenModeCodeOn = false;
+		var screenScroll = 0;
+		var fullScreenWindow = $('.js-fullscreen-code')[0];
+
+		$('body').on('click', '.btn-fullscreen-mode', function() {
+			if (isFullScreenModeCodeOn) {
+				$('body').css('overflow', '');
+				$(fullScreenWindow).removeClass('is-open').empty();
+				isFullScreenModeCodeOn = false;
+			} else {
+				var codeBlock = this.parentNode.parentNode.cloneNode(true);
+				$('body').css('overflow', 'hidden');
+				$(fullScreenWindow).append(codeBlock);
+				$(fullScreenWindow).find('.btn-fullscreen-mode').attr('title', 'Leave fullscreen mode');
+				$(fullScreenWindow).find('.btn-fullscreen-mode i').removeClass('fa-expand').addClass('fa-compress');
+				$(fullScreenWindow).addClass('is-open');
+				isFullScreenModeCodeOn = true;
+			}
+		});
+
+		$(document).keyup(function(e) {
+			if($(fullScreenWindow).hasClass('is-open') && e.key === "Escape") {
+				$('body').css('overflow', '');
+				$(fullScreenWindow).removeClass('is-open').empty();
+				isFullScreenModeCodeOn = false;
+			}
+	   });
+	}
+
+	initHighlight(wrapperHighlight);
+	addFullscreenMode();
 
 	// Gif Player
 	$('.gif').each(function(el){
