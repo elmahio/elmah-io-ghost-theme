@@ -3,7 +3,8 @@
     "description": "Elmah.io blogging theme based on Bootstrap 4.5.3 framework.",
     "version": "4.5.3",
     "engines": {
-		"ghost-api": "v3"
+		"ghost": ">=4.0.0",
+  		"ghost-api": "v4"
 	},
     "license": "MIT",
     "author": {

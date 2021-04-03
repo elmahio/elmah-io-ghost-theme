@@ -8,7 +8,7 @@
 
         {{#post}}
             {{!-- Related Posts - In this series --}}
-            {{#get "posts" include="url,title" filter="id:-{{id}}+tag:{{primary_tag.slug}}" as |related|}}
+            {{#get "posts" include="url,title" filter="id:-{{comment_id}}+tag:{{primary_tag.slug}}" as |related|}}
             <div id="related-posts" class="posts-wrapper d-none d-md-block">
                 <h3>In this series</h3>
                 <ul class="post-links">
