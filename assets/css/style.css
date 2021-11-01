@@ -1488,10 +1488,3 @@ kbd {
 .kg-card.kg-bookmark-card .kg-bookmark-container .kg-bookmark-thumbnail {
 	flex-basis: 20rem;
 }
-
-/* Copyright */
-.copyright a {
-	font-weight: 600;
-	font-size: 12px;
-	text-transform: uppercase;
-}
