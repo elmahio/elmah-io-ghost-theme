@@ -1380,6 +1380,14 @@ kbd {
 	display: none !important;
 }
 
+figcaption {
+    color: #999;
+    font-size: 13px;
+    line-height: 1.4;
+	margin-top: -8px;
+    text-align: center;
+	padding-bottom: 8px;
+}
 
 .kg-width-full img,
 .kg-width-wide img{
