@@ -191,7 +191,16 @@
         </script> --}}
 
         {{!-- jQuery + Bootstrap JS + Scripts --}}
-        <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.5.2/dist/elmahio.min.js?apiKey=b3f3b2f3fb4e4daabe243c8004b6f785&logId=33b5a5cd-27ff-4898-9f87-e9d41cc70253"></script>
+        <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.5.2/dist/elmahio.min.js"></script>
+        <script type="text/javascript">
+            new Elmahio({
+                apiKey: 'b3f3b2f3fb4e4daabe243c8004b6f785',
+                logId: '33b5a5cd-27ff-4898-9f87-e9d41cc70253',
+                filter: function(msg) {
+                    return msg.title.toLowerCase().indexOf('ResizeObserver loop limit exceeded'.toLowerCase()) >= 0;
+                }
+            });
+        </script>
         <script src="{{asset "js/jquery-3.5.1.min.js" }}"></script>
         <script src="{{asset "js/popper.min.js" }}"></script>
         <script src="{{asset "js/js.cookie.min.js" }}"></script>
