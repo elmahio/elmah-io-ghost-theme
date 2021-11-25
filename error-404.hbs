@@ -27,14 +27,14 @@ It's a good idea to keep this template as minimal as possible in terms of both f
 <script>
     function send404Error() {
         var script = document.createElement("script");
-        script.src = "https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.5.2/dist/elmahio.min.js";
+        script.src = "https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.5.3/dist/elmahio.min.js";
         document.body.append(script);
         script.addEventListener("load", function(){
             var logger = new Elmahio({ 
                 apiKey: 'b3f3b2f3fb4e4daabe243c8004b6f785',
                 logId: '33b5a5cd-27ff-4898-9f87-e9d41cc70253',
                 filter: function(msg) {
-                    return msg.title.toLowerCase().indexOf('ResizeObserver loop limit exceeded'.toLowerCase()) >= 0;
+                    return (msg.title.toLowerCase().indexOf("ResizeObserver loop limit exceeded".toLowerCase()) >= 0 || msg.title.toLowerCase().indexOf("Identifier 'originalPrompt' has already been declared".toLowerCase()) >= 0);
                 }
             });
             var msg = logger.message();
