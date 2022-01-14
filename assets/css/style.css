@@ -1389,6 +1389,19 @@ figcaption {
 	padding-bottom: 8px;
 }
 
+.gifsee-wrapper {
+	text-align: center;
+	display: inline-block;
+	margin-bottom: 0px;
+}
+.gifsee-wrapper img.gif {
+    width: auto;
+	display: inline-block;
+}
+img.gif {
+    display: none;
+}
+
 .kg-width-full img,
 .kg-width-wide img{
     // required by gcsan to properly validate the theme
