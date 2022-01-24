@@ -1509,3 +1509,51 @@ img.gif {
 .kg-card.kg-bookmark-card .kg-bookmark-container .kg-bookmark-thumbnail {
 	flex-basis: 20rem;
 }
+
+
+.inline_share_toolbox {
+    text-align: left;
+	float: left;
+    margin-top: -20px;
+}
+.inline_share_toolbox a {
+    color: #fff!important;
+    border-radius: 4px;
+    padding: 8px 14px;
+    margin: 0px 0px 3px 0px;
+    display: inline-block;
+    line-height: 0;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: transform .2s ease-in-out
+}
+.inline_share_toolbox a:hover {
+    transform: translateY(-4px)
+}
+.inline_share_toolbox a.share-facebook {
+    background: #3b5998
+}
+.inline_share_toolbox a.share-twitter {
+    background: #1da1f2
+}
+.inline_share_toolbox a.share-linkedin {
+    background: #0377b5
+}
+.inline_share_toolbox a.share-email {
+    background: #848484
+}
+
+@media screen and (max-width: 767px) {
+	.inline_share_toolbox {
+		text-align: center
+	}
+	.inline_share_toolbox a {
+		padding: 8px 0;
+		width: 28px
+	}
+	.inline_share_toolbox a span {
+		display: none
+	}
+}
