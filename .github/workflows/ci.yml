@@ -24,4 +24,4 @@ jobs:
           filename: 'elmah-blog-ghost-theme.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
       - name: Push .zip to Ghost
-        run: curl -X POST -F 'file=elmah-blog-ghost-theme.zip' -H "Authorization: Ghost $token" https://blog.elmah.io/ghost/api/{version}/admin/themes/upload
+        run: curl -X POST -F 'file=elmah-blog-ghost-theme.zip' -H "Authorization: Ghost ${{ secrets.GHOST_ADMIN_API_KEY}}" https://blog.elmah.io/ghost/api/v3/admin/themes/upload
