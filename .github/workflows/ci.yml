@@ -26,4 +26,4 @@ jobs:
       - name: Push .zip to Ghost
         uses: wei/curl@v1
         with:
-          args: -X POST -F 'file=elmah-blog-ghost-theme.zip' -H 'Authorization:Ghost ${{ secrets.GHOST_ADMIN_API_KEY}}' https://blog.elmah.io/ghost/api/v3/admin/themes/upload
+          args: -X POST -F 'file=elmah-blog-ghost-theme.zip' --header 'Authorization:Ghost ${{ secrets.GHOST_ADMIN_API_KEY}}' https://blog.elmah.io/ghost/api/v3/admin/themes/upload
