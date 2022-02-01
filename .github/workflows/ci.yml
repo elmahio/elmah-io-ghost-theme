@@ -1,0 +1,27 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.16.0
+      - name: Install Command-line JSON processor
+        run: sudo apt-get install jq
+      - name: Update package.json - production TRUE
+        run: jq -r 'delpaths([["config","custom"]])' package.json > _.json && mv _.json package.json
+      - run: npm install
+      - run: gulp min
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: 'elmah-blog-ghost-theme.zip'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
+      - name: Push .zip to Ghost
+        run: curl -X POST -F 'file=elmah-blog-ghost-theme.zip' -H "Authorization: Ghost $token" https://blog.elmah.io/ghost/api/{version}/admin/themes/upload

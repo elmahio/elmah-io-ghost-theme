@@ -17,12 +17,16 @@
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-solid-900.woff2" as="font" crossorigin />
 
+        {{#if @custom.cta_text}}
         <link href="{{asset "css/bootstrap.min.css" }}" rel="stylesheet">
         <link href="{{asset "fonts/font-awesome/css/all.min.css" }}" rel="stylesheet">
         <link href="{{asset "css/highlight.css" }}" rel="stylesheet">
         <link href="{{asset "css/jquery.fancybox.min.css" }}" rel="stylesheet">
         <link href="{{asset "css/gifsee.min.css" }}" rel="stylesheet">
         <link href="{{asset "css/style.css" }}" rel="stylesheet">
+        {{else}}
+        <link href="{{asset "css/style.min.css" }}" rel="stylesheet">
+        {{/if}}
 
         {{!-- This tag outputs SEO meta+structured data and other important settings --}}
         {{ghost_head}}
