@@ -1460,6 +1460,41 @@ figcaption {
 	padding-bottom: 8px;
 }
 
+.video-box {
+	position: relative;
+    display: block;
+    cursor: pointer
+}
+
+.video-box img {
+    cursor: pointer!important
+}
+
+.video-box > i {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    font-size: 90px;
+    text-align: center
+}
+
+.video-box > i:before {
+    color: #fff
+}
+
+.video-box > i:after {
+    color: #242939;
+    opacity: .7;
+    transition: opacity .15s ease-in
+}
+
+.video-box:hover > i:after {
+    transition: all .15s ease-in;
+    color: #0da58e;
+    opacity: .9
+}
+
 .gifsee-wrapper {
 	text-align: center;
 	display: inline-block;
@@ -1627,4 +1662,7 @@ img.gif {
 	.inline_share_toolbox a span {
 		display: none
 	}
+	.video-box > i {
+        font-size: 50px
+    }
 }
