@@ -201,7 +201,14 @@
                 apiKey: 'b3f3b2f3fb4e4daabe243c8004b6f785',
                 logId: '33b5a5cd-27ff-4898-9f87-e9d41cc70253',
                 filter: function(msg) {
-                    return (msg.title.toLowerCase().indexOf("ResizeObserver loop limit exceeded".toLowerCase()) >= 0 || msg.title.toLowerCase().indexOf("Identifier 'originalPrompt' has already been declared".toLowerCase()) >= 0);
+                    try {
+                        if(msg && msg.title) {
+                            return (msg.title.toLowerCase().indexOf("ResizeObserver loop limit exceeded".toLowerCase()) >= 0 || msg.title.toLowerCase().indexOf("Identifier 'originalPrompt' has already been declared".toLowerCase()) >= 0);
+                        }
+                        return false;
+                    } catch (e) {
+                        return false;
+                    }
                 }
             });
         </script>
