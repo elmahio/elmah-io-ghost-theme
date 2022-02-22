@@ -27,7 +27,7 @@ It's a good idea to keep this template as minimal as possible in terms of both f
 <script>
     function send404Error() {
         var script = document.createElement("script");
-        script.src = "https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.5.3/dist/elmahio.min.js";
+        script.src = "https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.7.0/dist/elmahio.min.js";
         document.body.append(script);
         script.addEventListener("load", function(){
             var logger = new Elmahio({ 
