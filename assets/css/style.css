@@ -1651,6 +1651,39 @@ img.gif {
     background: #848484
 }
 
+
+.follow-box .follow-list {
+	margin: 0;
+	padding: 0 5px;
+	list-style: none;
+	text-align: center;
+	display: flex;
+	gap: 5px;
+}
+.follow-box .follow-list li {
+    flex: 1 1 0px;
+	border-radius: 4px;
+	padding: 5px;
+	transition: transform .2s ease-in-out;
+}
+.follow-box .follow-list li.social-link-twitter {
+	background-color: #1da1f2;
+}
+.follow-box .follow-list li.social-link-facebook {
+	background-color: #3b5998
+}
+.follow-box .follow-list li.social-link-linkedin {
+	background-color: #0377b5;
+}
+.follow-box .follow-list li a {
+	font-size: 16px;
+	color: #fff;
+	display: block;
+}
+.follow-box .follow-list li:hover {
+	transform: translateY(-4px);
+}
+
 @media screen and (max-width: 767px) {
 	.inline_share_toolbox {
 		text-align: center

@@ -224,9 +224,11 @@ $(document).ready(function(){
 			scrollTop = $(window).scrollTop();
 			if((scrollTop >= btnPosition) && $('.newsletter-sticky').length === 0 ) {
 				$('.our-newsletter').clone().addClass('newsletter-sticky').hide().appendTo('.sticky-sidebar').fadeIn();
+				$('.follow-box').clone().addClass('follow-sticky').hide().appendTo('.sticky-sidebar').fadeIn();
 				$('.box-signup').removeClass('hide').hide().fadeIn();
 			} else if ((scrollTop < btnPosition)) {
 				$('.newsletter-sticky').remove();
+				$('.follow-sticky').remove();
 				$('.box-signup').addClass('hide');
 			}
 		}

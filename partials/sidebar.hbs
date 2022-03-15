@@ -56,6 +56,33 @@
 			</div>
         </div>
 
+        <div class="posts-wrapper follow-box d-none d-md-block">
+            <h3>Follow elmah.io</h3>
+            <div class="content">
+                <ul class="follow-list">
+                    {{#if @site.twitter}}
+                    <li class="social-link-twitter">
+                        <a class="social-link" href="{{twitter_url}}" title="Twitter" target="_blank rel="noopener noreferrer">
+                            <span class="fab fa-twitter"></span>
+                        </a>
+                    </li>
+                    {{/if}}
+                    {{#if @site.facebook}}
+                    <li class="social-link-facebook">
+                        <a class="social-link" href="{{facebook_url}}" title="Facebook" target="_blank rel="noopener noreferrer">
+                            <span class="fab fa-facebook-f"></span>
+                        </a>
+                    </li>
+                    {{/if}}
+                    <li class="social-link-linkedin">
+                        <a class="social-link" href="https://www.linkedin.com/company/elmah-io/" title="LinkedIn" target="_blank rel="noopener noreferrer">
+                            <span class="fab fa-linkedin-in"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div id="blog-posts" class="posts-wrapper d-none d-md-block">
             <h3>Blog Posts</h3>
             <div id="postList">
