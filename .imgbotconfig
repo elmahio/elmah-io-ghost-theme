@@ -1,3 +1,5 @@
-"ignoredFiles": [
-    "assets/fonts/font-awesome/webfonts/*"
-]
+{
+    "ignoredFiles": [
+        "assets/fonts/font-awesome/webfonts/*"
+    ]
+}
