@@ -287,3 +287,9 @@ if ($('.progress-bar').length > 0) {
   		progressElement.style.width = y * 100 + '%';
 	});
 }
+
+window.intercomSettings = {
+	app_id: 'i2hhgdvj',
+	system: 'elmah.io',
+	background_color: '#0da58e'
+};

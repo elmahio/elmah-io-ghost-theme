@@ -23,7 +23,8 @@
       "assets/js/scrollProgress.js",
       "assets/js/jquery.fancybox.min.js",
       "assets/js/gifsee.min.js",
-      "assets/js/main.js"
+      "assets/js/main.js",
+      "assets/js/intercom-facade.js"
     ]
   }
 ]
