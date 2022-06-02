@@ -16,17 +16,8 @@
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-light-300.woff2" as="font" crossorigin />
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-solid-900.woff2" as="font" crossorigin />
-
-        {{#if @custom.cta_text}}
-        <link href="{{asset "css/bootstrap.min.css" }}" rel="stylesheet">
-        <link href="{{asset "fonts/font-awesome/css/all.min.css" }}" rel="stylesheet">
-        <link href="{{asset "css/highlight.css" }}" rel="stylesheet">
-        <link href="{{asset "css/jquery.fancybox.min.css" }}" rel="stylesheet">
-        <link href="{{asset "css/gifsee.min.css" }}" rel="stylesheet">
-        <link href="{{asset "css/style.css" }}" rel="stylesheet">
-        {{else}}
+    
         <link href="{{asset "css/style.min.css" }}" rel="stylesheet">
-        {{/if}}
 
         {{!-- This tag outputs SEO meta+structured data and other important settings --}}
         {{ghost_head}}
@@ -212,22 +203,8 @@
                 }
             });
         </script>
-        {{#if @custom.cta_text}}
-        <script src="{{asset "js/jquery-3.5.1.min.js" }}"></script>
-        <script src="{{asset "js/popper.min.js" }}"></script>
-        <script src="{{asset "js/js.cookie.min.js" }}"></script>
-        <script src="{{asset "js/content-api.min.js" }}"></script>
-        <script src="{{asset "js/bootstrap.min.js" }}"></script>
-        <script src="{{asset "js/highlight.pack.js" }}"></script>
-        <script src="{{asset "js/fuse.min.js" }}"></script>
-        <script src="{{asset "js/scrollProgress.js" }}"></script>
-        <script src="{{asset "js/jquery.fancybox.min.js" }}"></script>
-        <script src="{{asset "js/gifsee.min.js" }}"></script>
-        <script src="{{asset "js/main.js" }}"></script>
-        <script src="{{asset "js/intercom-facade.js" }}"></script>
-        {{else}}
+
         <script src="{{asset "js/main.min.js" }}"></script>
-        {{/if}}
 
         {{#post}}
         {{#if featured}}

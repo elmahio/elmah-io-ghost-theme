@@ -13,12 +13,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.16.0
-      - name: Install Command-line JSON processor
-        run: sudo apt-get install jq
-      - name: Update package.json - production TRUE
-        run: jq -r 'delpaths([["config","custom"]])' package.json > _.json && mv _.json package.json
       - run: npm install
-      - run: gulp min
+      - run: gulp build
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:

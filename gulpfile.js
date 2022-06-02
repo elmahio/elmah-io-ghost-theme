@@ -1,46 +1,84 @@
 "use strict";
 
-var gulp = require("gulp"),
-    concat = require("gulp-concat"),
-    cssmin = require("gulp-cssmin"),
-    uglify = require("gulp-terser"),
-    merge = require("merge-stream"),
-    replace = require("gulp-replace"),
-    sourcemaps = require("gulp-sourcemaps"),
-    bundleconfig = require("./bundleconfig.json");
-    
-    var regex = {
-        css: /\.css$/,
-        js: /\.js$/
+const {series, watch, src, dest, parallel} = require('gulp');
+const pump = require('pump');
+
+// gulp plugins and utils
+var livereload = require('gulp-livereload');
+var uglify = require('gulp-terser');
+var beeper = require('beeper');
+var concat = require("gulp-concat");
+var cssmin = require("gulp-cssmin");
+var merge = require("merge-stream");
+var replace = require("gulp-replace");
+var sourcemaps = require("gulp-sourcemaps");
+var bundleconfig = require("./bundleconfig.json");
+
+var regex = {
+    css: /\.css$/,
+    js: /\.js$/
+};
+
+function getBundles(regexPattern) {
+    return bundleconfig.filter(function (bundle) {
+        return regexPattern.test(bundle.outputFileName);
+    });
+}
+
+function serve(done) {
+    livereload.listen();
+    done();
+}
+
+const handleError = (done) => {
+    return function (err) {
+        if (err) {
+            beeper();
+        }
+        return done(err);
     };
+};
 
-    function getBundles(regexPattern) {
-        return bundleconfig.filter(function (bundle) {
-            return regexPattern.test(bundle.outputFileName);
-        });
-    }
+function hbs(done) {
+    pump([
+        src(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs']),
+        livereload()
+    ], handleError(done));
+}
 
-    gulp.task("min:js", function () {
-        var tasks = getBundles(regex.js).map(function (bundle) {
-            return gulp.src(bundle.inputFiles, { base: "." })
-                .pipe(sourcemaps.init())
-                .pipe(concat(bundle.outputFileName))
-                .pipe(uglify())
-                .pipe(sourcemaps.write(".", {addComment: false}))
-                .pipe(gulp.dest("."));
-        });
-        return merge(tasks);
+function css(done) {
+    getBundles(regex.css).map(function (bundle) {
+        pump([
+            src(bundle.inputFiles, { base: "." }),
+            replace('../webfonts/', '../fonts/font-awesome/webfonts/'),
+            concat(bundle.outputFileName),
+            cssmin(),
+            dest('assets/css/', {sourcemaps: '.'}),
+            livereload()
+        ], handleError(done));
     });
-    
-    gulp.task("min:css", function () {
-        var tasks = getBundles(regex.css).map(function (bundle) {
-            return gulp.src(bundle.inputFiles, { base: "." })
-                .pipe(replace('../webfonts/', '../fonts/font-awesome/webfonts/'))
-                .pipe(concat(bundle.outputFileName))
-                .pipe(cssmin())
-                .pipe(gulp.dest("."));
-        });
-        return merge(tasks);
-    });
+}
 
-    gulp.task("min", gulp.series(["min:js", "min:css"]));
+function js(done) {
+    getBundles(regex.js).map(function (bundle) {
+        pump([
+            src(bundle.inputFiles, { base: "." }),
+            sourcemaps.init(),
+            concat(bundle.outputFileName),
+            uglify(),
+            sourcemaps.write(".", {addComment: false}),
+            dest('assets/js/'),
+            livereload()
+        ], handleError(done));
+    });
+}
+
+const cssWatcher = () => watch(['assets/css/**', '!assets/css/style.min.css'], css);
+const jsWatcher = () => watch(['assets/js/**', '!assets/js/main.min.js', '!assets/js/main.min.js.map'], js);
+const hbsWatcher = () => watch(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
+const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
+const build = series(css, js);
+const dev = series(build, serve, watcher);
+
+exports.build = build;
+exports.default = dev;

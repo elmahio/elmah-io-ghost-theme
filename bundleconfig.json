@@ -1,6 +1,6 @@
 [
   {
-    "outputFileName": "assets/css/style.min.css",
+    "outputFileName": "style.min.css",
     "inputFiles": [
       "assets/css/bootstrap.min.css",
       "assets/fonts/font-awesome/css/all.min.css",
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "outputFileName": "assets/js/main.min.js",
+    "outputFileName": "main.min.js",
     "inputFiles": [
       "assets/js/jquery-3.5.1.min.js",
       "assets/js/popper.min.js",

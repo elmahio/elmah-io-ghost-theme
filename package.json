@@ -13,26 +13,23 @@
   },
   "config": {
     "posts_per_page": 9,
-    "custom": {
-      "cta_text": {
-        "type": "text",
-        "default": "development"
-      }
-    },
     "card_assets": true
   },
   "keywords": ["ghost-theme"],
+  "scripts": {
+    "dev": "gulp"
+  },
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "beeper": "2.1.0",
+    "merge-stream": "^2.0.0",
+    "gulp": "4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-replace": "^1.1.3",
+    "gulp-livereload": "4.0.2",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.0.1",
-    "merge-stream": "^2.0.0",
-    "clean-css": ">=4.1.11",
-    "lodash.template": ">=4.5.0",
-    "glob-parent": ">=5.1.2",
-    "trim-newlines": ">=3.0.1"
+    "gulp-util": "3.0.8",
+    "gulp-watch": "5.0.1"
   }
 }
