@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	const api = new GhostContentAPI({
 		url: 'https://blog.elmah.io',
-		key: 'e234f3eb3524c54b6643941b44',
+		key: '1ccd929a2975dcde15e035b1b6',
 		version: "v3"
 	});
 
