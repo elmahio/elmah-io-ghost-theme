@@ -27,6 +27,12 @@ jobs:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
           file: elmah-blog-ghost-theme.zip
+      - name: Push .zip to Ghost Pro
+        uses: TryGhost/action-deploy-theme@v1.3.1
+        with:
+          api-url: ${{ secrets.GHOST_PRO_ADMIN_API_URL }}
+          api-key: ${{ secrets.GHOST_PRO_ADMIN_API_KEY }}
+          file: elmah-blog-ghost-theme.zip
       - name: Upload .zip as artifact
         uses: actions/upload-artifact@v2
         with:
