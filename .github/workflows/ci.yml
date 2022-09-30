@@ -21,12 +21,6 @@ jobs:
           type: 'zip'
           filename: 'elmah-blog-ghost-theme.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
-      - name: Push .zip to Ghost
-        uses: TryGhost/action-deploy-theme@v1.3.1
-        with:
-          api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
-          api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
-          file: elmah-blog-ghost-theme.zip
       - name: Push .zip to Ghost Pro
         uses: TryGhost/action-deploy-theme@v1.3.1
         with:
