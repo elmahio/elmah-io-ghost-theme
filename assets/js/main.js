@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	const api = new GhostContentAPI({
-		url: 'https://blog.elmah.io',
+		url: 'https://elmah-io-blog.ghost.io',
 		key: '1ccd929a2975dcde15e035b1b6',
 		version: "v3"
 	});
