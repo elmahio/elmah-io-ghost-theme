@@ -299,15 +299,17 @@ blockquote a, blockquote a:visited {
 	background-size: cover;
 	padding: 23px 0px;
 }
-.section-hero h2 {
+.section-hero .hero-title {
 	margin: 0px 0px 10px 0px;
 	font-weight: 500;
 	font-size: 30px;
+	line-height: 36px;
 }
-.section-hero h4 {
+.section-hero .hero-description {
 	margin: 0px;
 	font-weight: 500;
 	font-size: 18px;
+	line-height: 21.6px;
 }
 .section-hero .t-shirt {
 	width: 96px;
