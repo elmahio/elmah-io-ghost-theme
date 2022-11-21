@@ -561,7 +561,7 @@ code {
     background-color: #f9f2f4;
     border-radius: 4px;
 }
-code.powershell.hljs {
+code.powershell.hljs:not(.language-yml) {
 	background-color: #333;
 	color: #fff;
 	border-color: #333;
