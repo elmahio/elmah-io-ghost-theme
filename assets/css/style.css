@@ -1660,7 +1660,14 @@ img.gif {
     background: #3b5998
 }
 .inline_share_toolbox a.share-twitter {
-    background: #1da1f2
+    background: #0f1419
+}
+.inline_share_toolbox a.share-twitter .x-twitter:before {
+	display: inline-block;
+	vertical-align: bottom;
+	top: 0;
+	width: 11px;
+	height: 11px;
 }
 .inline_share_toolbox a.share-linkedin {
     background: #0377b5
@@ -1685,7 +1692,7 @@ img.gif {
 	transition: transform .2s ease-in-out;
 }
 .follow-box .follow-list li.social-link-twitter {
-	background-color: #1da1f2;
+	background-color: #0f1419;
 }
 .follow-box .follow-list li.social-link-facebook {
 	background-color: #3b5998
@@ -1716,4 +1723,13 @@ img.gif {
 	.video-box > i {
         font-size: 50px
     }
+}
+
+.x-twitter:before {
+	content: url(../img/share/x-twitter.svg);
+	position: relative;
+	display: block;
+	top: 2px;
+	width: 16px;
+	height: 16px;
 }
