@@ -830,6 +830,16 @@ footer .footer-badges img:last-child {
 .author-profile .author-meta .social-link {
 	margin: 0px 2px;
 }
+.author-profile .author-meta .social-link-tw span {
+	position: relative;
+	top: -1px;
+}
+.author-profile .author-meta .social-link-tw span svg {
+	fill: #0da58e;
+}
+.author-profile .author-meta .social-link-tw:hover span svg {
+	fill: #075e51;
+}
 .author-profile .author-meta .bull {
   display: inline-block;
   margin: 0 8px;
