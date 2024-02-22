@@ -665,11 +665,14 @@ footer .links {
 	padding: 46px 0px 30px 0px;
 	background: #393939;
 }
-footer .links h5 {
+footer .links span {
+	display: block;
 	color: #ffffff;
 	font-size: 16px;
-	font-weight: 500;
+	margin-top: 0px;
 	margin-bottom: 15px;
+	font-weight: 500;
+	line-height: 1.2;
 }
 footer .links ul li a {
 	color: #929292;

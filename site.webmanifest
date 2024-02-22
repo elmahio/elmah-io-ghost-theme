@@ -1,0 +1,28 @@
+﻿{
+  "name": "elmah.io Blog - .NET Technical tutorials/guides and new features",
+  "description": "On the elmah.io blog, the team behind elmah.io blog about new features and technologies either used to build elmah.io or of general interest.",
+  "short_name": "elmah.io",
+  "orientation": "any",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icons/AppIcon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/AppIconMaskable196x196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/AppIcon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0da58e",
+  "theme_color": "#0da58e"
+}
