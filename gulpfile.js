@@ -66,7 +66,7 @@ function js(done) {
             sourcemaps.init(),
             concat(bundle.outputFileName),
             uglify(),
-            sourcemaps.write(".", {addComment: false}),
+            sourcemaps.write(".", {addComment: true}),
             dest('assets/js/'),
             livereload()
         ], handleError(done));
