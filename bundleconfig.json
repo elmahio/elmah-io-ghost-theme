@@ -13,7 +13,7 @@
   {
     "outputFileName": "main.min.js",
     "inputFiles": [
-      "assets/js/jquery-3.5.1.min.js",
+      "assets/js/jquery-3.7.1.min.js",
       "assets/js/popper.min.js",
       "assets/js/js.cookie.min.js",
       "assets/js/content-api.min.js",
