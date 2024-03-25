@@ -1425,38 +1425,122 @@ kbd {
 
 /* Console hljs - CMD */
 .cmd {
-	border: 1px solid #000;
+	border: 1px solid #393a3b;
+	border-radius: 4px;
 	margin: 20px 0 20px 0;
-	background: #000;
+	background: #0c0c0c;
 }
 .cmd .cmd-bar {
 	display: flex;
-	background: #eee;
-	padding: 8px 12px;
+	background: #2e2e2e;
+	padding: 8px 12px 0px 8px;
+	border-radius: 6px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	user-select: none;
 }
 .cmd .cmd-bar .cmd-buttons {
 	margin-left: auto;
 	cursor: pointer;
+	align-items: center;
+	padding-bottom: 8px;
 }
 .cmd .cmd-bar .cmd-buttons i {
-	margin: 0 12px;
-	font-size: 14px;
+	margin: 0 17px;
+	font-size: 13px;
+	color: #fff;
+}
+.cmd .cmd-bar .cmd-buttons i:first-child {
+	position: relative;
+	top: -5px;
 }
 .cmd .cmd-bar .cmd-buttons i:last-child {
-	margin-right: 0;
+	margin-right: 6px;
+	font-size: 17px;
 }
 .cmd .cmd-bar .cmd-title {
+	position: relative;
 	display: flex;
 	align-items: center;
+	width: 250px;
+	padding: 8px;
+	background-color: #0c0c0c;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 500;
+	border-radius: 6px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	cursor: default;
+}
+.cmd .cmd-bar .cmd-title .bottom-edges {
+	content: "";
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: 6px;
+    background: #0c0c0c;
+}
+.cmd .cmd-bar .cmd-title .bottom-edges:before {
+	content: "";
+    width: 9px;
+    height: 11px;
+    border-radius: 4px;
+    left: -6px;
+    background: #2e2e2e;
+    position: absolute;
+    bottom: 0px;
+}
+.cmd .cmd-bar .cmd-title .bottom-edges:after {
+	content: "";
+    width: 9px;
+    height: 11px;
+    border-radius: 4px;
+    right: -6px;
+    background: #2e2e2e;
+    position: absolute;
+    bottom: 0px;
+}
+.cmd .cmd-bar .cmd-title i.fa-times {
+	font-size: 14px;
+	height: auto;
+	padding: 3px 8px;
+}
+.cmd .cmd-bar .cmd-title i.fa-times:hover {
+	cursor: pointer;
+	background-color: #1a1a1a;
+	border-radius: 4px;
 }
 .cmd .cmd-bar .cmd-title i {
 	font-size: 10px;
-    margin-right: 5px;
-    background: #000;
+    margin-right: 8px;
     padding: 3px 4px;
-    color: #fff;
+    color: #cccccc;
     height: 15px;
     border-radius: 2px;
+}
+.cmd .cmd-bar .cmd-title i.fa-terminal {
+	border: 1px solid #535558;
+    padding: 3px;
+}
+.cmd .cmd-bar .cmd-title i.fa-terminal:before {
+	position: relative;
+	top: -2px;
+}
+.cmd .cmd-bar .cmd-actions {
+	padding: 5px 15px;
+	color: #cccccc;
+	font-size: 13px;
+	display: flex;
+	align-items: center;
+}
+.cmd .cmd-bar .cmd-actions .fal {
+	cursor: pointer;
+}
+.cmd .cmd-bar .cmd-actions i.fa-horizontal-rule {
+	transform: rotate(90deg);
+	color: #4e4e4e;
 }
 .cmd .pre-console {
 	margin: 0;
@@ -1736,6 +1820,9 @@ img.gif {
 	.video-box > i {
         font-size: 50px
     }
+	.cmd .cmd-bar .cmd-actions {
+		display: none;
+	}
 }
 
 .x-twitter:before {

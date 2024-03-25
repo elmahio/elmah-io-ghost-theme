@@ -266,7 +266,17 @@ $(window).on('load', function() {
 	$(".language-console").each(function(){
 		$(this).parent().addClass('pre-console');
 		$(this).parent().wrap(function() { return $("<div class='cmd'></div>"); });
-		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span></div><div class='cmd-buttons d-block' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-window-minimize'></i><i class='fal fa-clone'></i><i class='fal fa-times'></i></div></div>");
+		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><div class='bottom-edges'></div><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span><i class='fal fa-times ml-auto mr-0' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod></i></div><div class='cmd-actions' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-plus'></i><i class='fal fa-horizontal-rule'></i><i class='fal fa-chevron-down'></i></div><div class='cmd-buttons d-flex' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-window-minimize'></i><i class='fal fa-square'></i><i class='fal fa-times'></i></div></div>");
+	});
+	$('.cmd-title').dblclick(function() {
+		$.fancybox.open({
+			src: 'https://blog.elmah.io/content/images/2019/12/bsod.png',
+			opts: {
+				beforeLoad: function(instance, current) {
+					$(instance.$refs.container[0]).addClass('fancybox-bsod');
+				}
+			}
+		});
 	});
 });
 
