@@ -71,26 +71,36 @@ $(document).ready(function(){
 		var screenScroll = 0;
 		var fullScreenWindow = $('.js-fullscreen-code')[0];
 
-		$('body').on('click', '.btn-fullscreen-mode', function() {
+		$('body').on('click', '.btn-fullscreen-mode', function(e) {
+			e.stopPropagation();
+
 			if (isFullScreenModeCodeOn) {
 				$('body').css('overflow', '');
-				$(fullScreenWindow).removeClass('is-open').empty();
+				$(fullScreenWindow).removeClass('is-open is-console').empty();
 				isFullScreenModeCodeOn = false;
 			} else {
-				var codeBlock = this.parentNode.parentNode.cloneNode(true);
-				$('body').css('overflow', 'hidden');
-				$(fullScreenWindow).append(codeBlock);
-				$(fullScreenWindow).find('.btn-fullscreen-mode').attr('title', 'Leave fullscreen mode');
-				$(fullScreenWindow).find('.btn-fullscreen-mode i').removeClass('fa-expand').addClass('fa-compress');
-				$(fullScreenWindow).addClass('is-open');
-				isFullScreenModeCodeOn = true;
+				if (e.currentTarget.parentElement.classList.contains('cmd-buttons')) {
+					var codeBlock = this.parentNode.parentNode.parentNode.cloneNode(true);
+					$('body').css('overflow', 'hidden');
+					$(fullScreenWindow).append(codeBlock);
+					$(fullScreenWindow).addClass('is-open is-console');
+					isFullScreenModeCodeOn = true;
+				} else {
+					var codeBlock = this.parentNode.parentNode.cloneNode(true);
+					$('body').css('overflow', 'hidden');
+					$(fullScreenWindow).append(codeBlock);
+					$(fullScreenWindow).find('.btn-fullscreen-mode').attr('title', 'Leave fullscreen mode');
+					$(fullScreenWindow).find('.btn-fullscreen-mode i').removeClass('fa-expand').addClass('fa-compress');
+					$(fullScreenWindow).addClass('is-open');
+					isFullScreenModeCodeOn = true;
+				}
 			}
 		});
 
 		$(document).keyup(function(e) {
 			if($(fullScreenWindow).hasClass('is-open') && e.key === "Escape") {
 				$('body').css('overflow', '');
-				$(fullScreenWindow).removeClass('is-open').empty();
+				$(fullScreenWindow).removeClass('is-open is-console').empty();
 				isFullScreenModeCodeOn = false;
 			}
 	   });
@@ -266,7 +276,7 @@ $(window).on('load', function() {
 	$(".language-console").each(function(){
 		$(this).parent().addClass('pre-console');
 		$(this).parent().wrap(function() { return $("<div class='cmd'></div>"); });
-		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><div class='bottom-edges'></div><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span><i class='fal fa-times ml-auto mr-0' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod></i></div><div class='cmd-actions' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-plus'></i><i class='fal fa-horizontal-rule'></i><i class='fal fa-chevron-down'></i></div><div class='cmd-buttons d-flex' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-window-minimize'></i><i class='fal fa-square'></i><i class='fal fa-times'></i></div></div>");
+		$(this).parent().parent().prepend("<div class='cmd-bar'><div class='cmd-title'><div class='bottom-edges'></div><i class='fal fa-terminal'></i><span class='d-none d-md-inline-block'>Command Prompt</span><span class='d-inline-block d-md-none'>CMD</span><i class='fal fa-times ml-auto mr-0' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod></i></div><div class='cmd-actions' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-plus'></i><i class='fal fa-horizontal-rule'></i><i class='fal fa-chevron-down'></i></div><div class='cmd-buttons d-flex' href='https://blog.elmah.io/content/images/2019/12/bsod.png' data-bsod><i class='fal fa-window-minimize'></i><i class='fal fa-square btn-fullscreen-mode'></i><i class='fal fa-times'></i></div></div>");
 	});
 	$('.cmd-title').dblclick(function() {
 		$.fancybox.open({

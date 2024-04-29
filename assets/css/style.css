@@ -601,7 +601,7 @@ code.powershell.hljs:not(.language-yml) {
     z-index: 1025;
     width: 100%;
     height: 100vh;
-    background: #ffffff;
+    background: transparent;
     color: #D8DEE9;
     overflow: auto;
     visibility: hidden;
@@ -611,6 +611,7 @@ code.powershell.hljs:not(.language-yml) {
 .fullscreen-code.is-open {
     visibility: visible;
     transform: scale(1);
+	background: #fff;
 }
 .fullscreen-code pre {
 	margin: 0;
@@ -1424,6 +1425,25 @@ kbd {
 }
 
 /* Console hljs - CMD */
+.is-console {
+	background: #0c0c0c !important;
+}
+.is-console .cmd {
+	margin: 0;
+	height: 100%;
+}
+.is-console .fa-square {
+	position: relative;
+	right: -2px;
+	top: -1px;
+}
+.is-console .fa-square::after {
+	content: "\f0c8";
+    position: absolute;
+    left: 14px;
+    top: 11px;
+    background: #2e2e2e;
+}
 .cmd {
 	border: 1px solid #393a3b;
 	border-radius: 4px;
@@ -1449,14 +1469,26 @@ kbd {
 	margin: 0 17px;
 	font-size: 13px;
 	color: #fff;
+	height: 100%;
+	align-content: center;
 }
 .cmd .cmd-bar .cmd-buttons i:first-child {
 	position: relative;
 	top: -5px;
 }
+.cmd .cmd-bar .cmd-buttons i:nth-child(2) {
+	z-index: 999;
+	width: 45px;
+	text-align: center;
+	margin: 0;
+}
 .cmd .cmd-bar .cmd-buttons i:last-child {
 	margin-right: 6px;
 	font-size: 17px;
+}
+.cmd .cmd-bar .cmd-buttons i.btn-fullscreen-mode {
+	padding: unset;
+	background-color: transparent;
 }
 .cmd .cmd-bar .cmd-title {
 	position: relative;
@@ -1624,7 +1656,7 @@ img.gif {
 }
 
 .kg-width-full img,
-.kg-width-wide img{
+.kg-width-wide img {
     // required by gcsan to properly validate the theme
 }
 .kg-gallery-container figcaption {
