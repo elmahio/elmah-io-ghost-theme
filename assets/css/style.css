@@ -1453,7 +1453,7 @@ kbd {
 .cmd .cmd-bar {
 	display: flex;
 	background: #2e2e2e;
-	padding: 8px 12px 0px 8px;
+	padding: 8px 8px 0px 8px;
 	border-radius: 6px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
@@ -1463,7 +1463,7 @@ kbd {
 	margin-left: auto;
 	cursor: pointer;
 	align-items: center;
-	padding-bottom: 8px;
+	margin-bottom: 8px;
 }
 .cmd .cmd-bar .cmd-buttons i {
 	margin: 0 17px;
@@ -1483,7 +1483,10 @@ kbd {
 	margin: 0;
 }
 .cmd .cmd-bar .cmd-buttons i:last-child {
-	margin-right: 6px;
+	z-index: 999;
+	width: 45px;
+	text-align: center;
+	margin: 0;
 	font-size: 17px;
 }
 .cmd .cmd-bar .cmd-buttons i.btn-fullscreen-mode {

@@ -82,6 +82,7 @@ $(document).ready(function(){
 				if (e.currentTarget.parentElement.classList.contains('cmd-buttons')) {
 					var codeBlock = this.parentNode.parentNode.parentNode.cloneNode(true);
 					$('body').css('overflow', 'hidden');
+					codeBlock.querySelector('.cmd-buttons .fa-times').classList.add('btn-close-cmd');
 					$(fullScreenWindow).append(codeBlock);
 					$(fullScreenWindow).addClass('is-open is-console');
 					isFullScreenModeCodeOn = true;
@@ -94,6 +95,17 @@ $(document).ready(function(){
 					$(fullScreenWindow).addClass('is-open');
 					isFullScreenModeCodeOn = true;
 				}
+			}
+		});
+
+
+		$('body').on('click', '.btn-close-cmd', function(e) {
+			e.stopPropagation();
+
+			if (isFullScreenModeCodeOn) {
+				$('body').css('overflow', '');
+				$(fullScreenWindow).removeClass('is-open is-console').empty();
+				isFullScreenModeCodeOn = false;
 			}
 		});
 
@@ -294,7 +306,7 @@ $(window).on('load', function() {
 $().fancybox({
     selector: '[data-bsod]',
     beforeLoad: function(instance, current) {
-		if(current.src === "https://blog.elmah.io/content/images/2019/12/bsod.png") {
+		if (current.src === "https://blog.elmah.io/content/images/2019/12/bsod.png") {
 			$(instance.$refs.container[0]).addClass('fancybox-bsod');
 		}
 	}
