@@ -11,8 +11,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 12.16.0
       - run: npm install
@@ -24,14 +24,14 @@ jobs:
           filename: 'elmah-blog-ghost-theme.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
       - name: Push .zip to Ghost Pro
-        uses: TryGhost/action-deploy-theme@v1.3.1
+        uses: TryGhost/action-deploy-theme@v1
         if: ${{ github.event_name == 'push' }}
         with:
           api-url: ${{ secrets.GHOST_PRO_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_PRO_ADMIN_API_KEY }}
           file: elmah-blog-ghost-theme.zip
       - name: Upload .zip as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: elmah-blog-ghost-theme.zip
           path: elmah-blog-ghost-theme.zip
