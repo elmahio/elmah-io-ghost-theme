@@ -24,7 +24,7 @@
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-light-300.woff2" as="font" crossorigin />
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
         <link rel="preload" href="/assets/fonts/font-awesome/webfonts/fa-solid-900.woff2" as="font" crossorigin />
-    
+        
         <link href="{{asset "css/style.min.css" }}" rel="stylesheet">
 
         <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -34,17 +34,21 @@
     </head>
 
     <body class="{{body_class}}">
+        <script>
+            const theme = localStorage.getItem("bs-theme") || "light";
+            document.documentElement.setAttribute('data-bs-theme', theme === 'light' || 'darkmode');
+        </script>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="https://elmah.io/">
                     <img src="{{asset "img/logo.png"}}" width="30" height="22" alt="elmah.io">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://elmah.io/tour/">Tour</a></li>
@@ -53,7 +57,13 @@
                         <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
                     </ul>
                     <ul class="navbar-nav navbar-nav-btn">
-                        <li class="nav-item mr-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/login/">Login</a></li>
+                        <div class="mode-switch mb-2 mb-md-0 d-none">
+                            <button id="toggle-theme" class="btn btn-outline-light d-block d-md-none d-lg-block">
+                                <i class="fas fa-moon d-none" id="dark"></i>
+                                <i class="fas fa-sun d-none" id="light"></i>
+                            </button>
+                        </div>
+                        <li class="nav-item mx-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/login/">Login</a></li>
                     	<li class="nav-item"><a class="btn btn-signup-trial" href="https://app.elmah.io/signup/" id="btn-trial-header">Free Trial</a></li>
                     </ul>
                 </div>
@@ -69,7 +79,7 @@
                             <div class="hero-description">When your website feels sick, we've got your back!</div>
                         </div>
                     </div>
-                    <div class="col text-right d-none d-lg-block">
+                    <div class="col text-end d-none d-lg-block">
                         <a class="btn btn-hg btn-primary btn-signup-shadow text-center signUpFromHero" href="https://app.elmah.io/signup/" id="btn-signup-hero">
                             <span class="signUpFromHero">Reduce Errors Now</span>
                             <span class="info signUpFromHero">no credit card required</span>
@@ -89,7 +99,7 @@
                     <div class="company-logo">
                         <img class="img-fluid" src="{{asset "img/elmahio.svg"}}" width="222" height="138" alt="elmah.io">
                     </div>
-                    <a href="https://app.elmah.io/signup/" class="btn btn-primary float-right signUpFromFooter" id="btn-signup-footer"><span class="signUpFromFooter">Sign Up Now</span><span class="info signUpFromFooter">no credit card required</span></a>
+                    <a href="https://app.elmah.io/signup/" class="btn btn-primary float-end signUpFromFooter" id="btn-signup-footer"><span class="signUpFromFooter">Sign Up Now</span><span class="info signUpFromFooter">no credit card required</span></a>
                 </div>
             </div>
             <div class="links">
@@ -147,7 +157,7 @@
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-lg-5 col-md-12 order-2 order-lg-1">
-                            <div class="text-center text-lg-left">
+                            <div class="text-center text-lg-start">
                                 <p>2013 - {{date format="YYYY"}} @ elmah.io. All Rights Reserved.</p>
                                 <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
                             </div>
@@ -160,7 +170,7 @@
                             </ul>
                         </div>
                         <div class="col-lg-5 col-md-12 order-1 order-lg-2">
-                            <div class="footer-badges text-center text-lg-right">
+                            <div class="footer-badges text-center text-lg-end">
                                 <a href="https://elmah.io/security/"><img src="{{asset "img/pcicompliant.png"}}" width="67" height="40" draggable="false" alt="PCI Compliant" /></a>
                                 <a href="https://elmah.io/security/"><img src="{{asset "img/gdpr.png"}}" width="106" height="40" draggable="false" alt="GDPR Compliant" /></a>
                                 <a href="https://elmah.io/security/"><img src="{{asset "img/shieldssl.png"}}" width="102" height="40" draggable="false" alt="Alpha SSL" /></a>
@@ -215,9 +225,12 @@
         <script type="text/javascript">
 			window.onload=function(){
 				if(!(/^(.*;)?\s*MCPopupClosed\s*=/.test(document.cookie))) {
-                    var iframe = $('iframe[data-dojo-attach-point="iframeModalContainer"]');
-                    $(iframe).contents().find('form').append('<input type="hidden" name="MMERGE3" value="blog-popup">');
-                    $(iframe).contents().find('form .content__button .button').attr('id', 'buttonNewsletterPopup');
+                    const iframe = document.querySelector('iframe[data-dojo-attach-point="iframeModalContainer"]');
+                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                    const form = iframeDocument.querySelector('form');
+                    form.insertAdjacentHTML('beforeend', '<input type="hidden" name="MMERGE3" value="blog-popup">');
+                    const formBtn = iframeDocument.querySelector('form .content__button .button');
+                    formBtn.id = "buttonNewsletterPopup";
                 }
 			};
         </script>

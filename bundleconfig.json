@@ -2,18 +2,18 @@
   {
     "outputFileName": "style.min.css",
     "inputFiles": [
-      "assets/css/bootstrap.min.css",
+      "assets/css/bootstrap.css",
       "assets/fonts/font-awesome/css/all.min.css",
       "assets/css/highlight.css",
-      "assets/css/jquery.fancybox.min.css",
+      "assets/css/fancybox.css",
       "assets/css/gifsee.min.css",
-      "assets/css/style.css"
+      "assets/css/style.css",
+      "assets/css/dark-theme.css"
     ]
   },
   {
     "outputFileName": "main.min.js",
     "inputFiles": [
-      "assets/js/jquery-3.7.1.min.js",
       "assets/js/popper.min.js",
       "assets/js/js.cookie.min.js",
       "assets/js/content-api.min.js",
@@ -21,7 +21,7 @@
       "assets/js/highlight.pack.js",
       "assets/js/fuse.min.js",
       "assets/js/scrollProgress.js",
-      "assets/js/jquery.fancybox.min.js",
+      "assets/js/fancybox.umd.js",
       "assets/js/gifsee.min.js",
       "assets/js/main.js",
       "assets/js/intercom-facade.js"
