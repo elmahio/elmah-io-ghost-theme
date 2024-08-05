@@ -450,7 +450,18 @@ relevance:0,illegal:/:/,contains:[{className:"keyword",begin:/@-?\w[\w]*(-\w+)*/
 $pattern:/[a-z-]+/,keyword:"and or not only",attribute:r.join(" ")},contains:[{
 begin:/[a-z-]+(?=:)/,className:"attribute"},...s,l.CSS_NUMBER_MODE]}]},{
 className:"selector-tag",begin:"\\b("+e.join("|")+")\\b"}]}}})()
-;hljs.registerLanguage("css",e)})();/*! `fsharp` grammar compiled for Highlight.js 11.10.0 */
+;hljs.registerLanguage("css",e)})();/*! `dos` grammar compiled for Highlight.js 11.10.0 */
+(()=>{var e=(()=>{"use strict";return e=>{const r=e.COMMENT(/^\s*@?rem\b/,/$/,{
+relevance:10});return{name:"Batch file (DOS)",aliases:["bat","cmd"],
+case_insensitive:!0,illegal:/\/\*/,keywords:{
+keyword:["if","else","goto","for","in","do","call","exit","not","exist","errorlevel","defined","equ","neq","lss","leq","gtr","geq"],
+built_in:["prn","nul","lpt3","lpt2","lpt1","con","com4","com3","com2","com1","aux","shift","cd","dir","echo","setlocal","endlocal","set","pause","copy","append","assoc","at","attrib","break","cacls","cd","chcp","chdir","chkdsk","chkntfs","cls","cmd","color","comp","compact","convert","date","dir","diskcomp","diskcopy","doskey","erase","fs","find","findstr","format","ftype","graftabl","help","keyb","label","md","mkdir","mode","more","move","path","pause","print","popd","pushd","promt","rd","recover","rem","rename","replace","restore","rmdir","shift","sort","start","subst","time","title","tree","type","ver","verify","vol","ping","net","ipconfig","taskkill","xcopy","ren","del"]
+},contains:[{className:"variable",begin:/%%[^ ]|%[^ ]+?%|![^ ]+?!/},{
+className:"function",begin:"^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)",
+end:"goto:eof",contains:[e.inherit(e.TITLE_MODE,{
+begin:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),r]},{
+className:"number",begin:"\\b\\d+",relevance:0},r]}}})()
+;hljs.registerLanguage("dos",e)})();/*! `fsharp` grammar compiled for Highlight.js 11.10.0 */
 (()=>{var e=(()=>{"use strict";function e(e){
 return RegExp(e.replace(/[-/\\^$*+?.()|[\]{}]/g,"\\$&"),"m")}function n(e){
 return e?"string"==typeof e?e:e.source:null}function t(e){return i("(?=",e,")")}
