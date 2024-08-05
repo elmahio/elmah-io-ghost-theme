@@ -193,8 +193,10 @@
 }
 [data-bs-theme=darkmode] code {
   color: #ff5aab;
-  background-color: transparent;
-  background-color: rgba(249, 242, 244, 0.1);
+  background-color: #333;
+}
+[data-bs-theme=darkmode] a > code {
+  color: inherit;
 }
 [data-bs-theme=darkmode] .hljs-comment,
 [data-bs-theme=darkmode] .hljs-quote {

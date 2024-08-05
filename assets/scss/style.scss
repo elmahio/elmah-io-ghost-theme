@@ -1658,14 +1658,15 @@ img.gif {
 }
 
 .inline_share_toolbox {
-    text-align: left;
+    text-align: center;
 	float: left;
     margin-top: -20px;
 
 	a {
 		color: #fff!important;
+		width: 28px;
 		border-radius: 4px;
-		padding: 8px 14px;
+		padding: 8px 0px;
 		margin: 0px 0px 3px 0px;
 		display: inline-block;
 		line-height: 0;
@@ -1697,6 +1698,10 @@ img.gif {
 		}
 		&.share-email {
 			background: #848484;
+		}
+
+		span {
+			display: none;
 		}
 	}
 }
@@ -2020,18 +2025,6 @@ footer {
 	}
 	#show-all-posts, #blog-posts {
 		margin-top: 0px;
-	}
-	.inline_share_toolbox {
-		text-align: center;
-
-		a {
-			padding: 8px 0;
-			width: 28px;
-
-			span {
-				display: none
-			}
-		}
 	}
 	.video-box > i {
         font-size: 50px

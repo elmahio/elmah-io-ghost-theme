@@ -166,6 +166,7 @@ window.addEventListener('scroll', function() {
 
 // Initialize highlight JS
 function initHighlight(wrapperHighlight) {
+    hljs.configure({languages: []});
     hljs.initHighlighting();
     wrapperHighlight();
     document.body.insertAdjacentHTML('beforeend', '<div class="fullscreen-code js-fullscreen-code"></div>');
@@ -173,12 +174,17 @@ function initHighlight(wrapperHighlight) {
 
 // Wrap highlight
 function wrapperHighlight() {
-    const hljsElements = document.querySelectorAll('.hljs:not(.language-console)');
+    const hljsElements = document.querySelectorAll('.hljs:not(.language-console), .language-nohighlight');
     hljsElements.forEach((elem) => {
         const wrapper = document.createElement('div');
         wrapper.className = 'hljs-wrapper';
         elem.parentElement.parentNode.insertBefore(wrapper, elem.parentElement);
         wrapper.appendChild(elem.parentElement);
+
+        // No highlight, but still an hljs component
+        if (elem.classList.contains('language-nohighlight')) {
+            elem.classList.add('hljs');
+        }
     });
 
     const hljsWrappers = document.querySelectorAll('.hljs-wrapper');
