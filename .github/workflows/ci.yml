@@ -29,7 +29,7 @@ jobs:
         with:
           api-url: ${{ secrets.GHOST_PRO_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_PRO_ADMIN_API_KEY }}
-          file: elmah-blog-ghost-theme.zip
+          file: elmah-blog-ghost-theme-b5.zip
       - name: Upload .zip as artifact
         uses: actions/upload-artifact@v4
         with:
