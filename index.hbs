@@ -4,11 +4,11 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The main content area --}}
 <div class="container mt-5 mb-5">
-    <div class="row">
+    <div class="row-wrapper">
 
 		{{> "sidebar"}}
 
-        <article class="col main-content order-2 order-md-1">
+        <article class="main-content order-2 order-md-1">
 			<div class="navbar breadcrumb-bar">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb m-0">
@@ -23,32 +23,34 @@ into the {body} of the default.hbs template --}}
 			</div>
 
 			<div class="index-content-body">
-				<div class="card-deck">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-custom">
 					{{!-- Posts here --}}
 					{{#foreach posts}}
-					<div class="card">
-						<div class="card-header">
-							<div class="post-title">
-								<a href="{{ url }}">{{title}}</a>
+					<div class="col">
+						<div class="card h-100">
+							<div class="card-header">
+								<div class="post-title">
+									<a href="{{ url }}">{{title}}</a>
+								</div>
 							</div>
-						</div>
-						<div class="card-body">
-							<div class="post-excerpt">
-								{{#if meta_description}}
-								<p>{{meta_description}}</p>
-								{{else}}
-								<p>{{excerpt}} ...</p>
-								{{/if}}
+							<div class="card-body">
+								<div class="post-excerpt">
+									{{#if meta_description}}
+									<p>{{meta_description}}</p>
+									{{else}}
+									<p>{{excerpt}} ...</p>
+									{{/if}}
+								</div>
 							</div>
-						</div>
-						<div class="card-footer">
-							<div class="post-card-meta">
-								<div class="post-author">
-									{{#primary_author}}
-									<img src="{{profile_image}}" alt="{{name}}'s Picture">
-									<span class="author">{{name}}</span>
-									{{/primary_author}}
-									<span class="date">{{date published_at format="MMMM DD, YYYY"}}</span>
+							<div class="card-footer">
+								<div class="post-card-meta">
+									<div class="post-author">
+										{{#primary_author}}
+										<img src="{{profile_image}}" alt="{{name}}'s Picture">
+										<span class="author">{{name}}</span>
+										{{/primary_author}}
+										<span class="date">{{date published_at format="MMMM DD, YYYY"}}</span>
+									</div>
 								</div>
 							</div>
 						</div>

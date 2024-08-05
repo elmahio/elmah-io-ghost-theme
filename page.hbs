@@ -5,7 +5,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 
 <div class="container mt-5 mb-5">
-    <div class="row">
+    <div class="row-wrapper">
 
 		{{> "sidebar"}}
 
@@ -13,7 +13,9 @@ into the {body} of the default.hbs template --}}
             <div class="main-content-body">
             	<div class="docs-box docs-post">
 					{{#post}}
+						{{#match @page.show_title_and_feature_image}}
 						<h1>{{title}}</h1>
+						{{/match}}
 						{{content}}
 					{{/post}}
 				</div>

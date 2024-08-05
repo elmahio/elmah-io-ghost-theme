@@ -21,7 +21,7 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          filename: 'elmah-blog-ghost-theme.zip'
+          filename: 'elmah-blog-ghost-theme-b5.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
       - name: Push .zip to Ghost Pro
         uses: TryGhost/action-deploy-theme@v1
@@ -33,5 +33,5 @@ jobs:
       - name: Upload .zip as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: elmah-blog-ghost-theme.zip
-          path: elmah-blog-ghost-theme.zip
+          name: elmah-blog-ghost-theme-b5.zip
+          path: elmah-blog-ghost-theme-b5.zip

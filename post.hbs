@@ -7,7 +7,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 
 <div class="container mt-5 mb-5">
-    <div class="row">
+    <div class="row-wrapper">
 
 		{{> "sidebar"}}
 
@@ -19,12 +19,11 @@ into the {body} of the default.hbs template --}}
 					<h1>{{title}}</h1>
 
 					<div class="inline_share_toolbox">
-						<a class="share-facebook" title="Share to Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u={{url absolute='true'}}"><i class="fab fa-facebook-f mr-md-2"></i><span>Facebook</span></a>
-						<a class="share-twitter" title="Share to Twitter" target="_blank" href="https://twitter.com/share?text={{encode title}}&url={{url absolute='true'}}"><i class="fab x-twitter mr-md-2"></i><span>Twitter</span></a>
-						<a class="share-linkedin" title="Share to LinkedIn" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute='true'}}"><i class="fab fa-linkedin-in mr-md-2"></i><span>LinkedIn</span></a>
-						<a class="share-email" title="Share to Email" target="_blank" href="mailto:?subject={{encode title}}&body={{url absolute='true'}}"><i class="fas fa-envelope mr-md-2"></i><span>Email</span></a>
+						<a class="share-facebook" title="Share to Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u={{url absolute='true'}}"><i class="fab fa-facebook-f"></i></a>
+						<a class="share-twitter" title="Share to Twitter" target="_blank" href="https://twitter.com/share?text={{encode title}}&url={{url absolute='true'}}"><i class="fab x-twitter"></i></a>
+						<a class="share-linkedin" title="Share to LinkedIn" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute='true'}}"><i class="fab fa-linkedin-in"></i></a>
+						<a class="share-email" title="Share to Email" target="_blank" href="mailto:?subject={{encode title}}&body={{url absolute='true'}}"><i class="fas fa-envelope"></i></a>
 					</div>
-
 
 					<div class="post-author">Written by {{authors}}, {{date published_at format="MMMM DD, YYYY"}}</div>
 
