@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll('.docs-post h2, .docs-post h3').forEach((elem, index) => {
             if (elem.hasAttribute("id")) {
                 const li = document.createElement('li');
-                if (elem.tagName === 'h3') { li.className = 'child'; }
+                if (elem.tagName.toLowerCase() === 'h3') { li.className = 'child'; }
                 const a = document.createElement('a');
                 a.href = '#' + elem.id;
                 a.textContent = elem.innerText;
@@ -167,7 +167,7 @@ window.addEventListener('scroll', function() {
 // Initialize highlight JS
 function initHighlight(wrapperHighlight) {
     hljs.configure({languages: []});
-    hljs.initHighlighting();
+    hljs.highlightAll();
     wrapperHighlight();
     document.body.insertAdjacentHTML('beforeend', '<div class="fullscreen-code js-fullscreen-code"></div>');
 }

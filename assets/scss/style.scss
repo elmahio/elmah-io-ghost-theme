@@ -250,6 +250,10 @@ kbd {
 	.navbar-nav .nav-link {
 		color: #fff;
 		padding: 10px 15px;
+		text-decoration: none;
+		&:hover {
+			color: rgba(255, 255, 255, .75);
+		}
 	}
 
 	.btn-signup-trial {

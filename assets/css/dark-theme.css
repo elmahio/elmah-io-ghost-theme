@@ -45,6 +45,9 @@
   --bs-btn-disabled-border-color: #999;
   --bs-gradient: none;
 }
+[data-bs-theme=darkmode] .navbar.bg-dark {
+  box-shadow: 0px -1px 3px 0px black;
+}
 [data-bs-theme=darkmode] .navbar.breadcrumb-bar ol {
   background: #333333;
 }

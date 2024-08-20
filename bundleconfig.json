@@ -15,7 +15,6 @@
     "outputFileName": "main.min.js",
     "inputFiles": [
       "assets/js/popper.min.js",
-      "assets/js/js.cookie.min.js",
       "assets/js/content-api.min.js",
       "assets/js/bootstrap.min.js",
       "assets/js/highlight.pack.js",
