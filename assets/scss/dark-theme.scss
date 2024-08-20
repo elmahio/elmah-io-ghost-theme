@@ -51,6 +51,10 @@
         --bs-gradient: none;
     }
 
+    .navbar.bg-dark {
+        box-shadow: 0px -1px 3px 0px black;
+    }
+
     .navbar.breadcrumb-bar {
         ol {
             background: #333333;
