@@ -37,7 +37,7 @@
         <script>
             const theme = localStorage.getItem("bs-theme") || "light";
             localStorage.setItem("bs-theme", theme);
-            document.documentElement.setAttribute('data-bs-theme', theme === 'light' || 'darkmode');
+            document.documentElement.setAttribute('data-bs-theme', theme === 'light' ? 'light' : 'darkmode');
         </script>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
