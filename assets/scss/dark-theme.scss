@@ -237,6 +237,10 @@
         border-color: #282828;
     }
 
+    .hljs-wrapper.netstack pre code {
+        border: 1px solid #282828;
+    }
+
     pre.request-method {
         background-color: #333;
         color: var(--elmahio-dark-href-color);
@@ -250,6 +254,10 @@
 
     .fullscreen-code.is-open {
         background: #333;
+
+        .hljs-wrapper.netstack pre code {
+            border: none;
+        }
     }
 
     code {

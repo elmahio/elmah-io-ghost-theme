@@ -608,6 +608,38 @@ code.powershell.hljs:not(.language-yml) {
   z-index: 10;
   display: block;
 }
+.hljs-wrapper.netstack pre, .hljs-wrapper.netstack code {
+  background-color: #333;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.hljs-wrapper.netstack code {
+  border: 1px solid #333;
+}
+.hljs-wrapper.netstack .st-type {
+  color: #0a8472;
+  font-weight: bolder;
+}
+.hljs-wrapper.netstack .st-method {
+  color: #70c9ba;
+  font-weight: bolder;
+}
+.hljs-wrapper.netstack .st-frame-params {
+  color: #ffffff;
+  font-weight: normal;
+}
+.hljs-wrapper.netstack .st-param-type {
+  color: #0a8472;
+}
+.hljs-wrapper.netstack .st-param-name {
+  color: #ffffff;
+}
+.hljs-wrapper.netstack .st-file {
+  color: #f8b068;
+}
+.hljs-wrapper.netstack .st-line {
+  color: #ff4f68;
+}
 
 .btn-fullscreen-mode {
   display: inline-block;
@@ -1213,6 +1245,10 @@ pre.request-method code .badge {
   margin-left: auto;
   font-size: 12px;
   height: 29px;
+}
+
+.is-netstack {
+  background: #333 !important;
 }
 
 .is-console {

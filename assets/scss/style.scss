@@ -676,6 +676,18 @@ code {
 		z-index: 10;
 		display: block;
 	}
+
+	&.netstack {
+		pre, code {background-color:#333; color: #ffffff; border-radius: 4px;}
+		code {border: 1px solid #333;}
+		.st-type {color: #0a8472; font-weight: bolder;}
+		.st-method {color: #70c9ba; font-weight: bolder;}
+		.st-frame-params {color: #ffffff; font-weight: normal;}
+		.st-param-type {color: #0a8472;}
+		.st-param-name {color: #ffffff;}
+		.st-file {color:#f8b068;}
+		.st-line {color:#ff4f68;}
+	}
 }
 
 .btn-fullscreen-mode {
@@ -1389,6 +1401,10 @@ pre.request-method {
 		font-size: 12px;
 		height: 29px;
 	}
+}
+
+.is-netstack {
+	background: #333 !important;
 }
 
 .is-console {

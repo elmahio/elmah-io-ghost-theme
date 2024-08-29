@@ -22,6 +22,7 @@
       "assets/js/scrollProgress.js",
       "assets/js/fancybox.umd.js",
       "assets/js/gifsee.min.js",
+      "assets/js/netstack.js",
       "assets/js/main.js",
       "assets/js/intercom-facade.js"
     ]

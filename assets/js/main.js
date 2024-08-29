@@ -167,24 +167,38 @@ window.addEventListener('scroll', function() {
 // Initialize highlight JS
 function initHighlight(wrapperHighlight) {
     hljs.configure({languages: []});
-    hljs.highlightAll();
+    //hljs.highlightAll();
+    document.querySelectorAll('pre code').forEach((el) => {
+        if (el.classList.contains('language-nohighlight')) {
+            el.classList.add('hljs');
+        } else if (el.classList.contains('language-stacktrace')) {
+            new netStack(el, {
+                prettyprint: true
+            });
+            el.classList.add('hljs');
+        } else {
+            hljs.highlightElement(el);
+        }
+    });
+
     wrapperHighlight();
     document.body.insertAdjacentHTML('beforeend', '<div class="fullscreen-code js-fullscreen-code"></div>');
 }
 
 // Wrap highlight
 function wrapperHighlight() {
-    const hljsElements = document.querySelectorAll('.hljs:not(.language-console), .language-nohighlight');
+    const hljsElements = document.querySelectorAll('.hljs:not(.language-console), .language-nohighlight, .language-stacktrace');
     hljsElements.forEach((elem) => {
         const wrapper = document.createElement('div');
         wrapper.className = 'hljs-wrapper';
-        elem.parentElement.parentNode.insertBefore(wrapper, elem.parentElement);
-        wrapper.appendChild(elem.parentElement);
 
         // No highlight, but still an hljs component
-        if (elem.classList.contains('language-nohighlight')) {
-            elem.classList.add('hljs');
+        if (elem.classList.contains('language-stacktrace')) {
+            wrapper.classList.add('netstack');
         }
+
+        elem.parentElement.parentNode.insertBefore(wrapper, elem.parentElement);
+        wrapper.appendChild(elem.parentElement);
     });
 
     const hljsWrappers = document.querySelectorAll('.hljs-wrapper');
@@ -212,7 +226,7 @@ function addFullscreenMode() {
         e.stopPropagation();
         if (isFullScreenModeCodeOn) {
             document.body.style.overflow = '';
-            fullScreenWindow.classList.remove('is-open', 'is-console');
+            fullScreenWindow.classList.remove('is-open', 'is-console', 'is-netstack');
             fullScreenWindow.innerHTML = '';
             isFullScreenModeCodeOn = false;
         } else {
@@ -233,6 +247,11 @@ function addFullscreenMode() {
                 fullScreenWindow.appendChild(codeBlock);
                 fullScreenWindow.classList.add('is-open', 'is-console');
             } else {
+                // netstack
+                if (e.currentTarget.parentNode.parentNode.classList.contains('netstack')) {
+                    fullScreenWindow.classList.add('is-open', 'is-netstack');
+                }
+
                 const codeBlock = e.currentTarget.parentNode.parentNode.cloneNode(true);
                 codeBlock.querySelector('.btn-fullscreen-mode').addEventListener('click', (e) => openCloseCodeWindow(e));
                 fullScreenWindow.appendChild(codeBlock);

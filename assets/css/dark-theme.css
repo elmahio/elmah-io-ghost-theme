@@ -182,6 +182,9 @@
   color: var(--elmahio-dark-href-color);
   border-color: #282828;
 }
+[data-bs-theme=darkmode] .hljs-wrapper.netstack pre code {
+  border: 1px solid #282828;
+}
 [data-bs-theme=darkmode] pre.request-method {
   background-color: #333;
   color: var(--elmahio-dark-href-color);
@@ -193,6 +196,9 @@
 }
 [data-bs-theme=darkmode] .fullscreen-code.is-open {
   background: #333;
+}
+[data-bs-theme=darkmode] .fullscreen-code.is-open .hljs-wrapper.netstack pre code {
+  border: none;
 }
 [data-bs-theme=darkmode] code {
   color: #8FBCBB;
