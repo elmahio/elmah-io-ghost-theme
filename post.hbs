@@ -16,7 +16,7 @@ into the {body} of the default.hbs template --}}
             	<div class="docs-box docs-post">
 					{{#post}}
 
-					<h1>{{title}}</h1>
+					<h1>{{{title}}}</h1>
 
 					<div class="inline_share_toolbox">
 						<a class="share-facebook" title="Share to Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u={{url absolute='true'}}"><i class="fab fa-facebook-f"></i></a>
@@ -37,7 +37,7 @@ into the {body} of the default.hbs template --}}
 									<i class="far fa-arrow-left"></i>
 									<span>Previous post</span>
 								</div>
-								<div class="article">{{title}}</div>
+								<div class="article">{{{title}}}</div>
 							</a>
 							{{/prev_post}}
 						</div>
@@ -48,7 +48,7 @@ into the {body} of the default.hbs template --}}
 									<span>Next post</span>
 									<i class="far fa-arrow-right"></i>
 								</div>
-								<div class="article">{{title}}</div>
+								<div class="article">{{{title}}}</div>
 							</a>
 							{{/next_post}}
 						</div>
