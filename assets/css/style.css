@@ -1838,6 +1838,9 @@ footer .footer-badges img:last-child {
   .cmd .cmd-bar .cmd-actions {
     display: none;
   }
+  .mc-banner {
+    display: none !important;
+  }
 }
 @media screen and (max-width: 576px) {
   .posts-navigation .col i {
