@@ -15,7 +15,7 @@
 {{#get "posts" limit="all" include="authors"}}
     {{#foreach posts}}
     <item>
-        <title><![CDATA[ {{{title}}} ]]></title>
+        <title><![CDATA[ {{#if title}}{{{meta_title}}}{{/if}} ]]></title>
         <description><![CDATA[ {{excerpt}} ]]></description>
         <link>{{url absolute="true"}}</link>
         <guid isPermaLink="false">{{comment_id}}</guid>
