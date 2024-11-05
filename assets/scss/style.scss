@@ -558,6 +558,10 @@ ul.post-links {
 			font-weight: 300;
 		}
 	}
+
+	+ #featured-posts {
+		display: none !important;
+	}
 }
 
 .main-content {

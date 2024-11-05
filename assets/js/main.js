@@ -19,12 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Populate all posts on ready
     api.posts.browse({ include: 'url,title,published_at', limit: '6' }).then(function(posts) { showArchive(posts); });
 
-    // IF - In this series, remove featured
-    const related_posts = document.querySelector('#related-posts');
-    if (related_posts) {
-        related_posts.remove();
-    }
-
     // Create TOC
     const toc = document.querySelector('.toc');
     if (toc) {

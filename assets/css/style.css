@@ -499,6 +499,9 @@ ul.post-links > li > a:hover {
   font-family: "Font Awesome 5 Pro";
   font-weight: 300;
 }
+#related-posts + #featured-posts {
+  display: none !important;
+}
 
 .main-content {
   max-width: calc(100% - 300px);
