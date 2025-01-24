@@ -1,5 +1,5 @@
 /*!
- * netStack v2.0.0
+ * netStack v2.1.1
  * A simple and easy JavaScript library for highlighting .NET stack traces
  * License: Apache 2
  * Author: https://elmah.io
@@ -48,6 +48,7 @@
             { name: 'english', at: 'at', in: 'in', line: 'line' },
             { name: 'danish', at: 'ved', in: 'i', line: 'linje' },
             { name: 'german', at: 'bei', in: 'in', line: 'Zeile' },
+            { name: 'spanish', at: 'en', in: 'en', line: 'línea' },
             { name: 'russian', at: 'в', in: 'в', line: 'строка' },
             { name: 'chinese', at: '在', in: '位置', line: '行号' }
         ];
@@ -75,6 +76,8 @@
         return null;
     };
 
+    netStack.prototype.allEqual = arr => arr.every(val => val === arr[0]);
+
     netStack.prototype.replacer = function(args, at_language) {
         if (args[0].substring(0).match(/(-{3}&gt;)/)) {
             return '\r\n ' + args[0];
@@ -85,7 +88,7 @@
         }
     };
 
-    netStack.prototype.formatException = function(exceptionMessage, at_language) {
+    netStack.prototype.formatException = function(exceptionMessage, at_language, loop, position) {
         var result = exceptionMessage || '';
         var searchReplaces = [
             {
@@ -103,7 +106,12 @@
         ];
 
         var self = this;
-        searchReplaces.forEach(function(item) {
+        searchReplaces.forEach(function(item, index) {
+            // multilanguage, skip --- lines
+            if (loop === true && position > 0 && index === 1) {
+                return;
+            }
+
             if (item.repl == null) {
                 result = result.replace(item.find, function() {
                     return self.replacer(arguments, at_language);
@@ -115,6 +123,22 @@
         return result;
     };
 
+    netStack.prototype.detectLanguagesInOrder = function(input, regexes) {
+        let matches = [];
+        
+        for (let [language, regex] of Object.entries(regexes)) {
+            let match;
+            while ((match = regex.exec(input)) !== null) {
+                matches.push({ language, index: match.index });
+            }
+            regex.lastIndex = 0;
+        }
+        
+        matches.sort((a, b) => a.index - b.index);
+        
+        return matches.map((match) => match.language);  
+    };
+
     netStack.prototype.init = function() {
         // Get the stacktrace, sanitize it, and split it into lines
         var stacktrace = this.element.textContent,
@@ -123,52 +147,82 @@
             lang = '',
             clone = '';
 
-        // look for the language
-        for (var i = 0; i < lines.length; ++i) {
-            if (lang === '') {
-                var regexes = {
-                    english: /\s+at .*\)/,
-                    danish: /\s+ved .*\)/,
-                    german: /\s+bei .*\)/,
-                    russian: /\s+в .*\)/,
-                    chinese: /\s+在 .*\)/
-                };
+        var languagesRegex = { 
+            english: /\s+at .*?\)/g,
+            danish: /\s+ved .*?\)/g,
+            german: /\s+bei .*?\)/g,
+            spanish: /\s+en .*?\)/g,
+            russian: /\s+в .*?\)/g,
+            chinese: /\s+在 .*?\)/g
+        };
 
-                for (var key in regexes) {
-                    if (regexes[key].test(lines[i])) {
-                        lang = key;
-                        break;
-                    }
-                }
+        // look for the language(s) in the stack trace
+        lang = this.detectLanguagesInOrder(lines, languagesRegex);
+
+        // if no language is found, return
+        if (lang.length === 0) return;
+
+        // if multiline option is true, check if the language is the same for all lines
+        if (typeof lang === 'object') {
+            if (this.allEqual(lang)) {
+                lang = lang[0];
             }
         }
 
-        if (lang === '') return;
-
-        var selectedLanguage = this.search(lang, this.languages);
-        this.language = selectedLanguage.name;
+        // if lang is an array, we have multiple languages
+        if (Array.isArray(lang)) {
+            var selectedLanguage = [];
+            for (var i = 0; i < lang.length; ++i) {
+                selectedLanguage.push(this.search(lang[i], this.languages));
+            }
+            this.language = 'multilanguage';
+        } else if (typeof lang === 'string') {
+            var selectedLanguage = this.search(lang, this.languages);
+            this.language = selectedLanguage.name;
+        }
 
         // Pritty print result if is set to true
         if (this.settings.prettyprint) {
-            sanitizedStack = this.formatException(sanitizedStack, selectedLanguage.at);
+            if (Array.isArray(selectedLanguage)) {
+                var sanitizedStacks = sanitizedStack;
+                const selectedLanguages = [...new Set(selectedLanguage)];
+                selectedLanguages.forEach((language, index) => {
+                    sanitizedStacks = this.formatException(sanitizedStacks, language.at, true, index);
+                });
+                sanitizedStack = sanitizedStacks;
+            } else {
+                sanitizedStack = this.formatException(sanitizedStack, selectedLanguage.at);
+            }
+
             lines = sanitizedStack.split('\n');
+        }
+
+        if (Array.isArray(selectedLanguage)) {
+            var langContor = 0;
         }
 
         for (var i = 0; i < lines.length; ++i) {
             var li = lines[i],
-                hli = new RegExp('(\\S*)' + selectedLanguage.at + ' .*\\)');
+                hli = new RegExp('(\\S*)' + selectedLanguage.at + ' .*\\)'),
+                languageSet = selectedLanguage;
+
+            if (Array.isArray(selectedLanguage)) {
+                hli = new RegExp('(\\S*)' + selectedLanguage[langContor].at + ' .*\\)');
+                languageSet = selectedLanguage[langContor];
+                hli.test(lines[i]) ? langContor++ : langContor;
+            }
 
             if (hli.test(lines[i])) {
                 
                 // Frame
-                var regFrame = new RegExp('(\\S*)' + selectedLanguage.at + ' .*?\\)'),
+                var regFrame = new RegExp('(\\S*)' + languageSet.at + ' .*?\\)'),
                     partsFrame = String(regFrame.exec(lines[i]));
 
                 if (partsFrame.substring(partsFrame.length - 1) == ',') {
                     partsFrame = partsFrame.slice(0, -1);
                 }
 
-                partsFrame = partsFrame.replace(selectedLanguage.at + ' ', '');
+                partsFrame = partsFrame.replace(languageSet.at + ' ', '');
 
                 // Frame -> ParameterList
                 var regParamList = /\(.*\)/,
@@ -204,18 +258,18 @@
                 var newPartsFrame = partsFrame.replace(partsParamList, stringParam).replace(partsTypeMethod, stringTypeMethod);
 
                 // Line
-                var regLine = new RegExp('\\b:' + selectedLanguage.line + ' \\d+'),
+                var regLine = new RegExp('\\b:' + languageSet.line + ' \\d+'),
                     partsLine = String(regLine.exec(lines[i]));
 
                 partsLine = partsLine.replace(':', '').trim();
 
-                var fileLi = li.replace(selectedLanguage.at + " " + partsFrame, '').trim();
+                var fileLi = li.replace(languageSet.at + " " + partsFrame, '').trim();
 
                 // File => (!) text requires multiline to exec regex, otherwise it will return null.
-                var regFile = new RegExp(selectedLanguage.in + '\\s.*$', 'm'),
+                var regFile = new RegExp(languageSet.in + '\\s.*$', 'm'),
                     partsFile = String(regFile.exec(fileLi));
 
-                partsFile = partsFile.replace(selectedLanguage.in + ' ', '').replace(':' + partsLine, '').replace('&lt;---', '');
+                partsFile = partsFile.replace(languageSet.in + ' ', '').replace(':' + partsLine, '').replace('&lt;---', '');
 
                 li = li.replace(partsFrame, '<span class="' + this.settings.frame + '">' + newPartsFrame + '</span>')
                     .replace(partsFile, '<span class="' + this.settings.file + '">' + partsFile + '</span>')
