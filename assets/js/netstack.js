@@ -1,5 +1,5 @@
 /*!
- * netStack v2.1.1
+ * netStack v2.1.2
  * A simple and easy JavaScript library for highlighting .NET stack traces
  * License: Apache 2
  * Author: https://elmah.io
@@ -141,7 +141,7 @@
 
     netStack.prototype.init = function() {
         // Get the stacktrace, sanitize it, and split it into lines
-        var stacktrace = this.element.textContent,
+        var stacktrace = this.element.textContent.trim(), // trim empty spaces and lines before and after stacktrace
             sanitizedStack = stacktrace.replace(/</g, '&lt;').replace(/>/g, '&gt;'),
             lines = sanitizedStack.split('\n'),
             lang = '',
