@@ -10,14 +10,57 @@ document.addEventListener("DOMContentLoaded", function() {
     const api = new GhostContentAPI({
         url: 'https://elmah-io-blog.ghost.io',
         key: '1ccd929a2975dcde15e035b1b6',
-        version: "v3"
+        version: "v6.0"
     });
 
-    // Populate featured posts on ready
-    api.posts.browse({include: 'url,title', limit: 'all', filter: 'featured:true'}).then(function(posts) { showFeatured(posts); });
+    async function fetchAllPosts() {
+        let allPosts = [];
+        let page = 1;
+        let totalPages = 1;
 
-    // Populate all posts on ready
-    api.posts.browse({ include: 'url,title,published_at', limit: '6' }).then(function(posts) { showArchive(posts); });
+        do {
+            const posts = await api.posts.browse({
+                fields: 'url,title,published_at,featured',
+                limit: 100,
+                page: page
+            });
+
+            allPosts = allPosts.concat(posts);
+            totalPages = posts.meta.pagination.pages;
+            page++;
+        } while (page <= totalPages);
+
+        return allPosts;
+    }
+
+    async function initSearch() {
+        const posts = await fetchAllPosts();
+        
+        // Show 6 featured posts randomly
+        showFeatured(posts.filter(post => post.featured));
+
+        // Get latest 6 posts
+        showArchive(posts.slice(0, 6));
+
+        // Search function
+        searchData(posts);
+
+        // Show all posts on click
+        const showAllPosts = document.querySelector('#show-all-posts');
+        showAllPosts.addEventListener('click', function callback(event) {
+            showArchive(posts);
+
+            document.querySelector('#blog-posts').classList.remove('d-none');
+            if (document.querySelector('.progress-bar')) {
+                setTimeout(() => { progressObserver.trigger(); }, 1000);
+            }
+            showAllPosts.remove();
+            this.removeEventListener('click', callback);
+        });
+    }
+
+    initSearch();
+
 
     // Create TOC
     const toc = document.querySelector('.toc');
@@ -83,24 +126,6 @@ document.addEventListener("DOMContentLoaded", function() {
         el.parentNode.insertBefore(wrapper, el);
         wrapper.appendChild(el);
     });
-
-    // Show all posts on click
-    const showAllPosts = document.querySelector('#show-all-posts');
-    showAllPosts.addEventListener('click', function callback(event) {
-        api.posts.browse({ include: 'url,title,published_at', limit: 'all' }).then((posts) => { showArchive(posts); });
-
-        document.querySelector('#blog-posts').classList.remove('d-none');
-        if (document.querySelector('.progress-bar')) {
-            setTimeout(() => { progressObserver.trigger(); }, 1000);
-        }
-        showAllPosts.remove();
-        this.removeEventListener('click', callback);
-    });
-
-    // Search function
-    if (document.querySelector('#search')) {
-        api.posts.browse({ include: 'url,title', limit: 'all' }).then((posts) => { searchData(posts); });
-    }
 });
 
 // On window loaded
