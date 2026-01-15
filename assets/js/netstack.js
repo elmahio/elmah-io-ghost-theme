@@ -1,5 +1,5 @@
 /*!
- * netStack v2.1.2
+ * netStack v2.1.3
  * A simple and easy JavaScript library for highlighting .NET stack traces
  * License: Apache 2
  * Author: https://elmah.io
@@ -17,6 +17,10 @@
         root.netStack = factory();
     }
 }(typeof self !== 'undefined' ? self : this, function() {
+
+    // Prevent SQL keywords
+    var sqlKeywords = "INNER JOIN|DELETE|SELECT|FROM|WHERE|INSERT|UPDATE";
+    var preventSQL = `(?!${sqlKeywords})`;
 
     function netStack(element, options) {
         if (typeof document !== 'undefined') {
@@ -100,7 +104,7 @@
                 repl: null
             },
             {
-                find: new RegExp('(\\s)' + at_language + ' ([^-:]*?)\\((.*?)\\)', 'g'),
+                find: new RegExp('(\\s)' + at_language + ' ' + preventSQL + '([^-:)]*?)\\((.*?)\\)', 'g'),
                 repl: null
             }
         ];
@@ -147,13 +151,13 @@
             lang = '',
             clone = '';
 
-        var languagesRegex = { 
-            english: /\s+at .*?\)/g,
-            danish: /\s+ved .*?\)/g,
-            german: /\s+bei .*?\)/g,
-            spanish: /\s+en .*?\)/g,
-            russian: /\s+в .*?\)/g,
-            chinese: /\s+在 .*?\)/g
+        const languagesRegex = {
+            english: new RegExp(`\\s+at ${preventSQL}([^-:)]*?)\\(.*?\\)`, "g"),
+            danish:  new RegExp(`\\s+ved ${preventSQL}([^-:)]*?)\\(.*?\\)`, "g"),
+            german:  new RegExp(`\\s+bei ${preventSQL}([^-:)]*?)\\(.*?\\)`, "g"),
+            spanish: new RegExp(`\\s+en ${preventSQL}([^-:)]*?)\\(.*?\\)`, "g"),
+            russian: new RegExp(`\\s+в ${preventSQL}([^-:)]*?)\\(.*?\\)`, "g"),
+            chinese: new RegExp(`\\s+在 ${preventSQL}([^-:)]*?)\\(.*?\\)`, "g")
         };
 
         // look for the language(s) in the stack trace
@@ -213,9 +217,8 @@
             }
 
             if (hli.test(lines[i])) {
-                
                 // Frame
-                var regFrame = new RegExp('(\\S*)' + languageSet.at + ' .*?\\)'),
+                var regFrame = new RegExp('(\\S*)' + languageSet.at + ' ' + preventSQL + '[^-:)]*?\\(.*?\\)'),
                     partsFrame = String(regFrame.exec(lines[i]));
 
                 if (partsFrame.substring(partsFrame.length - 1) == ',') {
