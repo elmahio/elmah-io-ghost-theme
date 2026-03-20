@@ -1894,6 +1894,147 @@ footer {
 	}
 }
 
+/* Sweet Alert */
+.swal2-popup:not(.swal2-toast) {
+    --swal2-border-radius: 4px;
+    padding-bottom: 0;
+
+    .swal2-icon {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-width: 3px;
+        margin-top: 25px;
+        margin-bottom: 0;
+
+        .swal2-icon-content {
+            font-size: 32px;
+        }
+    }
+
+    .swal2-title {
+        font-size: 20px;
+        font-weight: 500;
+        padding: 20px 15px 0px 15px;
+        text-align: left;
+    }
+
+    .swal2-html-container {
+        font-size: 16px;
+        padding: 15px;
+        text-align: left;
+    }
+
+    .swal2-actions {
+        width: 100%;
+        padding: 15px;
+        margin-top: 0px;
+        border-top: 1px solid #dee2e6;
+        justify-content: end;
+
+        .swal2-styled {
+            all: inherit;
+        }
+
+        .btn {
+            margin: 0;
+        }
+    }
+}
+
+/* Cookieconsent */
+#cc-main {
+    --cc-font-family: 'Lato', sans-serif;
+    --cc-btn-border-radius: 4px;
+
+    --cc-btn-primary-bg: #0da58e;
+    --cc-btn-primary-border-color: #0b947f;
+    --cc-btn-primary-hover-bg: #0b947f;
+    --cc-btn-primary-hover-border-color: #0b947f;
+
+    --cc-btn-secondary-bg: #869ab8;
+    --cc-btn-secondary-color: #fff;
+    --cc-btn-secondary-border-color: #788aa5;
+    --cc-btn-secondary-hover-bg: #788aa5;
+    --cc-btn-secondary-hover-color: #fff;
+    --cc-btn-secondary-hover-border-color: #788aa5;
+
+    --cc-toggle-on-bg: #0da58e;
+
+    .cm__btn {
+        font-size: 16px;
+        font-weight: 400;
+        min-height: auto;
+        line-height: 1.5;
+    }
+
+    .cm--box.cm--wide .cm__btn {
+        min-width: 100px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .cm--wide.cm--flip .cm__btn-group+.cm__btn-group {
+        margin-left: 0px;
+    }
+
+    .cm__btn[data-role="necessary"] {
+        background: #dc3545;
+        border: 1px solid #dc3545;
+
+        &:hover {
+            background: #bb2d3b;
+            border: 1px solid #b02a37;
+        }
+    }
+
+    .pm__btn {
+        font-size: 16px;
+        font-weight: 400;
+        min-height: auto;
+        line-height: 1.5;
+        padding: 6px 12px;
+    }
+
+    .pm__close-btn {
+        background: #fff;
+        border: none;
+        width: 32px;
+        height: 32px;
+
+        svg {
+            stroke: #000;
+            transform: scale(.75);
+            opacity: 0.5;
+        }
+
+        &:hover {
+            background: #fff;
+            border: none;
+
+            svg {
+                stroke: #000;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .pm__badge {
+        background: #d5dee2;
+        color: #2c2f31;
+    }
+
+    .pm__section--expandable .pm__section-arrow {
+        background: #d5dee2;
+    }
+
+    .pm__table-head .pm__table-th {
+        vertical-align: middle;
+    }
+}
+
 /* link card */
 .kg-card.kg-bookmark-card .kg-bookmark-container .kg-bookmark-thumbnail a img {
 	margin: 0px;
