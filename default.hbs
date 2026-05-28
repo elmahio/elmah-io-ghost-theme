@@ -24,6 +24,10 @@
         <link rel="preload" href="{{asset "fonts/font-awesome/webfonts/fa-light-300.woff2"}}" as="font" crossorigin />
         <link rel="preload" href="{{asset "fonts/font-awesome/webfonts/fa-regular-400.woff2"}}" as="font" crossorigin />
         <link rel="preload" href="{{asset "fonts/font-awesome/webfonts/fa-solid-900.woff2"}}" as="font" crossorigin />
+
+        <link rel="preload" href="{{asset "img/hero-bg.svg"}}" as="image">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         
         <link href="{{asset "css/style.min.css" }}" rel="stylesheet">
 
@@ -59,7 +63,7 @@
                     </ul>
                     <ul class="navbar-nav navbar-nav-btn">
                         <div class="mode-switch mb-2 mb-md-0 d-none">
-                            <button id="toggle-theme" class="btn btn-outline-light d-block d-md-none d-lg-block">
+                            <button id="toggle-theme" class="btn btn-outline-light d-block d-md-none d-lg-block" aria-label="Toggle dark mode">
                                 <i class="fas fa-moon d-none" id="dark"></i>
                                 <i class="fas fa-sun d-none" id="light"></i>
                             </button>
@@ -91,7 +95,9 @@
         </div>
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        <main>
         {{{body}}}
+        </main>
 
         {{!-- The footer at the very bottom of the screen --}}
         <footer>
