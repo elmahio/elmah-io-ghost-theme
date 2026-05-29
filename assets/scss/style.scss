@@ -339,12 +339,22 @@ kbd {
 }
 
 .section-hero {
+	position: relative;
 	color: #ffffff;
 	margin: 0;
-	background-image: url(../img/hero-bg.svg);
-	background-position: 0% 69%;
-	background-size: cover;
 	padding: 23px 0px;
+
+	> img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 0% 69%;
+		background: #18a099;
+		z-index: -1;
+	}
 
 	.hero-title {
 		margin: 0px 0px 10px 0px;
@@ -1070,19 +1080,34 @@ pre.request-method {
 		border-radius: 5px;
 
 		.card-header {
-			background: #18a099 url(../img/hero-bg.svg) no-repeat;
-			background-position: center;
+			position: relative;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
 			border: none;
 			padding: 15px 20px;
 
+			> img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-position: center;
+				object-fit: none;
+				background: #18a099;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				z-index: 1;
+			}
+
 			.post-title a {
+				position: relative;
 				display: block;
 				font-size: 18px;
 				font-weight: 600;
 				color: #ffffff;
 				text-decoration: none;
+				z-index: 2;
 			}
 		}
 

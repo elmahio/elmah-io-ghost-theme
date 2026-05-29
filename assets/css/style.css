@@ -308,12 +308,23 @@ kbd {
 }
 
 .section-hero {
+  position: relative;
   color: #ffffff;
   margin: 0;
-  background-image: url(../img/hero-bg.svg);
-  background-position: 0% 69%;
-  background-size: cover;
   padding: 23px 0px;
+}
+.section-hero > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0% 69%;
+     object-position: 0% 69%;
+  background: #18a099;
+  z-index: -1;
 }
 .section-hero .hero-title {
   margin: 0px 0px 10px 0px;
@@ -963,19 +974,35 @@ pre.request-method code .badge {
   border-radius: 5px;
 }
 .index-content-body .card .card-header {
-  background: #18a099 url(../img/hero-bg.svg) no-repeat;
-  background-position: center;
+  position: relative;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border: none;
   padding: 15px 20px;
 }
+.index-content-body .card .card-header > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: none;
+     object-fit: none;
+  background: #18a099;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 1;
+}
 .index-content-body .card .card-header .post-title a {
+  position: relative;
   display: block;
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
   text-decoration: none;
+  z-index: 2;
 }
 .index-content-body .card .card-body {
   padding: 20px;
