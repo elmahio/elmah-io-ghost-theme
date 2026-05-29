@@ -488,13 +488,13 @@ ul.post-links > li > a {
   padding: 0px 5px;
   font-size: 13px;
   font-weight: 600;
-  color: rgba(87, 87, 87, 0.8);
+  color: #666;
   transition: color 0.12s ease-out;
   text-decoration: none;
   text-transform: none;
 }
 ul.post-links > li > a:hover {
-  color: #333333;
+  color: #212529;
 }
 
 #show-all-posts {
@@ -1038,7 +1038,7 @@ pre.request-method code .badge {
 }
 .index-content-body .card .card-footer .post-card-meta .post-author .date {
   font-size: 12px;
-  color: rgba(87, 87, 87, 0.8);
+  color: #555;
 }
 
 .embed-responsive {

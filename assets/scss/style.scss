@@ -541,13 +541,13 @@ ul.post-links {
 			padding: 0px 5px;
 			font-size: 13px;
 			font-weight: 600;
-			color: rgba(87,87,87,.8);
+			color: #666;
 			transition: color .12s ease-out;
 			text-decoration: none;
 			text-transform: none;
 
 			&:hover {
-				color: #333333;
+				color: #212529;
 			}
 		}
 	}
@@ -1150,7 +1150,7 @@ pre.request-method {
 
 				.date {
 					font-size: 12px;
-					color: rgba(87, 87, 87, 0.8);
+					color: #555;
 				}
 			}
 		}
