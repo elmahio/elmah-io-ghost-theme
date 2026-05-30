@@ -218,27 +218,8 @@
         {{#if featured}}
         <!-- move the script here -->
         {{/if}}
-        <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-        <script>
-            var mcForms = ["e6194de6d8"],
-                random = mcForms[Math.floor(Math.random() * mcForms.length)];
-            require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":random}); });
-        </script>
-        <script type="text/javascript">
-			window.onload=function(){
-				if(!(/^(.*;)?\s*MCPopupClosed\s*=/.test(document.cookie))) {
-                    const iframe = document.querySelector('iframe[data-dojo-attach-point="iframeModalContainer"]');
-                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                    const form = iframeDocument.querySelector('form');
-                    form.insertAdjacentHTML('beforeend', '<input type="hidden" name="MMERGE3" value="blog-popup">');
-                    const formBtn = iframeDocument.querySelector('form .content__button .button');
-                    formBtn.id = "buttonNewsletterPopup";
-                }
-			};
-        </script>
+            <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/66fdd2122e968863d381a26e1/97533fb78cdb30800f4d4b96d.js");</script>
         {{/post}}
-
-        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/66fdd2122e968863d381a26e1/97533fb78cdb30800f4d4b96d.js");</script>
 
         {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
         {{ghost_foot}}
