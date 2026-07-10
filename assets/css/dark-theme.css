@@ -96,6 +96,9 @@
   color: #fff;
   border-bottom: 1px solid #363636;
 }
+[data-bs-theme=darkmode] .our-newsletter::after {
+  background: var(--elmahio-dark-box-background);
+}
 [data-bs-theme=darkmode] .main-nav li > a {
   color: #fff;
 }

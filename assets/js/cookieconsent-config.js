@@ -157,12 +157,6 @@ CookieConsent.run({
                                         domain: 'intercom',
                                         description: 'A cookie used by Intercom to show the Messenger.',
                                         expiration: '7 days'
-                                    },
-                                    {
-                                        name: 'mcforms-#-sessionId',
-                                        domain: 'mailchimp.com',
-                                        description: 'Cookie used to maintain a secure user session for the newsletter subscription form and ensures the pop-up works correctly during your visit.',
-                                        expiration: 'Session'
                                     }
                                 ]
                             }

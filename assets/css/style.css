@@ -1124,6 +1124,42 @@ pre.request-method code .badge {
   margin-bottom: 10px;
 }
 
+.our-newsletter {
+  position: relative;
+  border: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.our-newsletter::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  z-index: -2;
+  background: conic-gradient(from 0deg, transparent 0%, #fd7366 75%, #ff8e4f 90%, #ff9a44 100%), transparent;
+  animation: rotire-perfecta 10s linear infinite;
+}
+.our-newsletter::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff;
+  border-radius: 3px;
+  z-index: -1;
+}
+@keyframes rotire-perfecta {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.our-newsletter h3 {
+  margin: -12px -13px 15px !important;
+}
 .our-newsletter .content {
   padding: 5px;
 }

@@ -117,6 +117,12 @@
         }
     }
 
+    .our-newsletter {
+        &::after {
+            background: var(--elmahio-dark-box-background);
+        }
+    }
+
     .main-nav li > a {
         color: #fff;
     }
