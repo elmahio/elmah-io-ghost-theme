@@ -1,0 +1,22 @@
+# elmah.io Blog
+
+> Tutorials and guides on .NET development, error handling, and performance — from the team behind elmah.io, the error logging and uptime monitoring service for .NET.
+
+## Featured guides
+
+- [The complete guide to mastering Dapper micro-ORM in .NET](https://blog.elmah.io/the-complete-guide-to-mastering-dapper-micro-orm-in-net/)
+- [EF Core at scale: 5 ways to retrieve large datasets efficiently](https://blog.elmah.io/ef-core-at-scale-5-ways-to-retrieve-large-datasets-efficiently/)
+- [EF Core query translation: Why does some LINQ never become SQL?](https://blog.elmah.io/ef-core-query-translation-why-does-some-linq-never-become-sql/)
+- [Mapping database views in EF Core without breaking migrations](https://blog.elmah.io/mapping-database-views-in-ef-core-without-breaking-migrations/)
+- [12 practices for optimizing PostgreSQL queries for large datasets](https://blog.elmah.io/12-practices-for-optimizing-postgresql-queries-for-large-datasets/)
+- [Simplifying file logging in ASP.NET Core with Serilog](https://blog.elmah.io/simplifying-file-logging-in-asp-net-core-with-serilog/)
+
+## Product
+
+- [elmah.io](https://elmah.io/): Error logging and uptime monitoring for .NET.
+- [Documentation](https://docs.elmah.io/)
+- [MCP server setup](https://docs.elmah.io/setup-mcp-server/): Connect elmah.io to Claude, ChatGPT, and other AI tools.
+
+## Optional
+
+- [All posts](https://blog.elmah.io/): Full archive, updated regularly.

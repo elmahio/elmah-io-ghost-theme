@@ -1,3 +1,4 @@
+# llms.txt: https://blog.elmah.io/llms.txt
 User-agent: *
 Sitemap: https://blog.elmah.io/sitemap.xml
 Disallow: /ghost/
