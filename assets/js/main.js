@@ -34,29 +34,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function initSearch() {
-        const posts = await fetchAllPosts();
-        
-        // Show 6 featured posts randomly
-        showFeatured(posts.filter(post => post.featured));
+        if (document.querySelector('.sidebar')) {
+            const posts = await fetchAllPosts();
+            
+            // Show 6 featured posts randomly
+            showFeatured(posts.filter(post => post.featured));
 
-        // Get latest 6 posts
-        showArchive(posts.slice(0, 6));
+            // Get latest 6 posts
+            showArchive(posts.slice(0, 6));
 
-        // Search function
-        searchData(posts);
+            // Search function
+            searchData(posts);
 
-        // Show all posts on click
-        const showAllPosts = document.querySelector('#show-all-posts');
-        showAllPosts.addEventListener('click', function callback(event) {
-            showArchive(posts);
+            // Show all posts on click
+            const showAllPosts = document.querySelector('#show-all-posts');
+            if (showAllPosts) {
+                showAllPosts.addEventListener('click', function callback(event) {
+                    showArchive(posts);
 
-            document.querySelector('#blog-posts').classList.remove('d-none');
-            if (document.querySelector('.progress-bar')) {
-                setTimeout(() => { progressObserver.trigger(); }, 1000);
+                    document.querySelector('#blog-posts').classList.remove('d-none');
+                    if (document.querySelector('.progress-bar')) {
+                        setTimeout(() => { progressObserver.trigger(); }, 1000);
+                    }
+                    showAllPosts.remove();
+                    this.removeEventListener('click', callback);
+                });
             }
-            showAllPosts.remove();
-            this.removeEventListener('click', callback);
-        });
+        }
     }
 
     initSearch();
@@ -306,72 +310,76 @@ function shuffleArray(array) {
 
 // Show blog archive
 function showArchive(posts) {
-    const container = document.querySelector('#postList');
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let currentMonth = -1;
-    let currentYear = -1;
+    if (document.querySelector('#postList')) {
+        const container = document.querySelector('#postList');
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let currentMonth = -1;
+        let currentYear = -1;
 
-    container.innerHTML = '';
-    const ul = document.createElement('ul');
-    ul.className = 'main-nav';
-    container.appendChild(ul);
+        container.innerHTML = '';
+        const ul = document.createElement('ul');
+        ul.className = 'main-nav';
+        container.appendChild(ul);
 
-    posts.forEach((value, index) => {
-        const datePublished = new Date(value.published_at); //Convert the string to a JS Date
-        const postMonth = datePublished.getMonth();  //Get the month (as an integer)
-        const postYear = datePublished.getFullYear(); //Get the 4-digit year
+        posts.forEach((value, index) => {
+            const datePublished = new Date(value.published_at); //Convert the string to a JS Date
+            const postMonth = datePublished.getMonth();  //Get the month (as an integer)
+            const postYear = datePublished.getFullYear(); //Get the 4-digit year
 
-        if (postMonth != currentMonth || postYear != currentYear) {
-            // If the current post's month and year are not the current stored month and year, set them
-            currentMonth = postMonth;
-            currentYear = postYear;
-            // Then show a month/year header
+            if (postMonth != currentMonth || postYear != currentYear) {
+                // If the current post's month and year are not the current stored month and year, set them
+                currentMonth = postMonth;
+                currentYear = postYear;
+                // Then show a month/year header
+                const li = document.createElement('li');
+                li.className = monthNames[currentMonth] + '-' + currentYear;
+                const a = document.createElement('a');
+                a.href = 'javascript:;';
+                a.textContent = monthNames[currentMonth] + ' ' + currentYear;
+                li.appendChild(a);
+                container.querySelector('ul.main-nav').appendChild(li);
+                const liUl = document.createElement('ul');
+                liUl.className = 'post-links';
+                li.appendChild(liUl);
+            }
+
+            // For every post, display a link.
             const li = document.createElement('li');
-            li.className = monthNames[currentMonth] + '-' + currentYear;
             const a = document.createElement('a');
-            a.href = 'javascript:;';
-            a.textContent = monthNames[currentMonth] + ' ' + currentYear;
+            a.href = value.url;
+            a.textContent = value.title;
             li.appendChild(a);
-            container.querySelector('ul.main-nav').appendChild(li);
-            const liUl = document.createElement('ul');
-            liUl.className = 'post-links';
-            li.appendChild(liUl);
+            container.querySelector("ul > li." + monthNames[currentMonth] + "-" + currentYear + " > ul").appendChild(li);
+        });
+
+        if (container.querySelector('a[href="'+ window.location.pathname +'"]')) {
+            container.querySelector('a[href="'+ window.location.pathname +'"]').parentElement.classList.add('active');
         }
-
-        // For every post, display a link.
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = value.url;
-        a.textContent = value.title;
-        li.appendChild(a);
-        container.querySelector("ul > li." + monthNames[currentMonth] + "-" + currentYear + " > ul").appendChild(li);
-    });
-
-    if (container.querySelector('a[href="'+ window.location.pathname +'"]')) {
-        container.querySelector('a[href="'+ window.location.pathname +'"]').parentElement.classList.add('active');
     }
 }
 
 // Show featured posts
 function showFeatured(posts) {
-    const container = document.querySelector('#featuredList');
-    const sortedPosts = shuffleArray(posts);
-    const displayPosts = sortedPosts.slice(0,6);
+    if (document.querySelector('#featuredList')) {
+        const container = document.querySelector('#featuredList');
+        const sortedPosts = shuffleArray(posts);
+        const displayPosts = sortedPosts.slice(0,6);
 
-    container.innerHTML = '';
-    const ul = document.createElement('ul');
-    ul.className = 'post-links';
-    container.appendChild(ul);
+        container.innerHTML = '';
+        const ul = document.createElement('ul');
+        ul.className = 'post-links';
+        container.appendChild(ul);
 
-    displayPosts.forEach((value, index) => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = value.url;
-        a.textContent = value.title;
-        li.appendChild(a);
+        displayPosts.forEach((value, index) => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = value.url;
+            a.textContent = value.title;
+            li.appendChild(a);
 
-        container.querySelector('ul.post-links').appendChild(li);
-    });
+            container.querySelector('ul.post-links').appendChild(li);
+        });
+    }
 }
 
 // FadeIn animation
@@ -440,45 +448,47 @@ function navbarScroll() {
 
 // Search data
 function searchData(data) {
-    const container = document.querySelector('#searchList');
-    const options = {
-        shouldSort: true,
-        tokenize: true,
-        threshold: 0,
-        location: 0,
-        distance: 100,
-        maxPatternLength: 32,
-        minMatchCharLength: 1,
-        ignoreLocation: true,
-        keys: ["title"]
-    };
-    const fuse = new Fuse(data, options);
-    
-    const searchInput = document.querySelector('#search');
-    searchInput.addEventListener('keyup', function(e) {
-        if (e.target.value) {
-            let result = fuse.search(e.target.value);
+    if (document.querySelector('#searchList')) {
+        const container = document.querySelector('#searchList');
+        const options = {
+            shouldSort: true,
+            tokenize: true,
+            threshold: 0,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            ignoreLocation: true,
+            keys: ["title"]
+        };
+        const fuse = new Fuse(data, options);
+        
+        const searchInput = document.querySelector('#search');
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.target.value) {
+                let result = fuse.search(e.target.value);
 
-            if (result.length === 0) {
-                container.innerHTML = '';
+                if (result.length === 0) {
+                    container.innerHTML = '';
+                } else {
+                    container.innerHTML = '';
+                    container.innerHTML += '<ul><h3>Search results</h3></ul>';
+                }
+
+                result.forEach(function(value) {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = value.item.url;
+                    a.textContent = value.item.title;
+                    li.appendChild(a);
+
+                    container.querySelector('ul').appendChild(li);
+                });
             } else {
                 container.innerHTML = '';
-                container.innerHTML += '<ul><h3>Search results</h3></ul>';
             }
-
-            result.forEach(function(value) {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = value.item.url;
-                a.textContent = value.item.title;
-                li.appendChild(a);
-
-                container.querySelector('ul').appendChild(li);
-            });
-        } else {
-            container.innerHTML = '';
-        }
-    });
+        });
+    }
 }
 
 // Init Fancybox library
